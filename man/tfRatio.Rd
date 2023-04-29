@@ -14,8 +14,11 @@ tfRatio(text,
 
 \arguments{
 \item{text}{Collection of text documents.}
+
 \item{keyword}{Keyword to be searched in the documents.}
+
 \item{return.selected}{Logical. Should the ratios values be returned or only the index of documents accoding to the established threshold value.}
+
 \item{threshold}{Defines the limits for selecting those texts were the keyword is particularly more frequent than most texts.}
 }
 \details{
