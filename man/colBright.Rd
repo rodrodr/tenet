@@ -10,9 +10,7 @@ colBright(colors,
         limit=130,
         bright="white",
         dark="black")
-        
-colBright(colors,...)
-        
+
 }
 
 \arguments{

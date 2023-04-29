@@ -5,7 +5,6 @@
 Calculates the ratio between the frequency of a term in each document compared to its appearance in the whole corpus.
 }
 \usage{
-tfRatio(text, keyword,...)
 
 tfRatio(text,
         keyword,
