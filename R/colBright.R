@@ -5,7 +5,7 @@
 # Determine the brightness of background colors to adapt labels
 # Dark colors would require white labels and light colors
 # would produce black labels
-#
+#' @import grDevices
 #' @export
 colBright <- function(colors, limit=130, bright="white", dark="black"){
   
@@ -18,7 +18,7 @@ colBright <- function(colors, limit=130, bright="white", dark="black"){
   }
   
   col <- rep(bright, length(colors))
-  col[valc>lim] <- dark
+  col[valc>limit] <- dark
   
   col
   
