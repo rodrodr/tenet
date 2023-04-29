@@ -2,9 +2,7 @@ Package: tenet
 Type: Package
 Title: Text Mining Function for the Humanities and the Social Sciences
 Version: 0.1.0
-Authors@R: 
-    person("Rodrigo", "Rodrigues-Silveira" , "rodrodr@usal.es", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-6912-7689")) 
+Author: Rodrigo Rodrigues-Silveira <rodrodr@usal.es>
 Maintainer: Rodrigo Rodrigues-Silveira <rodrodr@usal.es>
 Description: The present package gathers functions for text mining and textual data
     visualization for the Humanities and the Social Sciences.
