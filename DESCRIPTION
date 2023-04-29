@@ -2,10 +2,13 @@ Package: tenet
 Type: Package
 Title: Text Mining Function for the Humanities and the Social Sciences
 Version: 0.1.0
-Author: Rodrigo Rodrigues-Silveira
-Maintainer: Rodrigo Rodrigues-Silveira <rodrodr@usal.es>
+Authors@R: 
+    person("Rodrigo", "Rodrigues-Silveira" , "rodrodr@usal.es", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6912-7689"))Maintainer: Rodrigo Rodrigues-Silveira <rodrodr@usal.es>
 Description: The present package gathers functions for text mining and textual data
     visualization for the Humanities and the Social Sciences.
-License: Creative Commons - Non commercial use (CC BY-NC)
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
 Encoding: UTF-8 
 LazyData: true
+Roxygen: list(markdown = TRUE)
