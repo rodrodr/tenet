@@ -5,12 +5,14 @@
 Evaluates the brightness of background colors and return light colors for labels when the background is dark and dark colors when the background is light.
 }
 \usage{
-colBright(colors,...)
 
 colBright(colors,
         limit=130,
         bright="white",
         dark="black")
+        
+colBright(colors,...)
+        
 }
 
 \arguments{
