@@ -100,5 +100,10 @@ plotLexDiv(tx,
            keywords = dic, 
            palette = "Dark2")
 
+# Aggregate the corpus according to party
+plotLexDiv(tx, 
+           docvar="President", 
+           value=c("Nixon","Bush","Kennedy","Roosevelt"), 
+           aggr.by.var = "Party")
 }
 }
