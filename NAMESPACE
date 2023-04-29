@@ -2,3 +2,5 @@
 
 export(colBright)
 export(tfRatio)
+import(grDevices)
+import(stringi)

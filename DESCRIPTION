@@ -8,6 +8,7 @@ Description: The present package gathers functions for text mining and textual d
     visualization for the Humanities and the Social Sciences.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
+Depends: stringi, grDevices
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
