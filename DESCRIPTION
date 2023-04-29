@@ -6,9 +6,8 @@ Author: Rodrigo Rodrigues-Silveira <rodrodr@usal.es>
 Maintainer: Rodrigo Rodrigues-Silveira <rodrodr@usal.es>
 Description: The present package gathers functions for text mining and textual data
     visualization for the Humanities and the Social Sciences.
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
-Depends: stringi, grDevices
+License: GPL (>= 3) 
+Depends: stringi, grDevices, quanteda, rstudioapi
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
