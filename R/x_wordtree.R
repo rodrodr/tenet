@@ -3,7 +3,7 @@
 # Function x_wordtree
 # Creates a wordtree for visualizing keywords in context
 #' @import stringi
-#' @export
+# @export
 x_wordtree <- function(text,
                      targetWord,
                      direction="double",

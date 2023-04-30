@@ -5,7 +5,7 @@
 #
 #' @import quanteda
 #' @import dplyr
-#' @export
+# @export
 filterWordsAttribute <- function(corpus,
                                  docvar,         
                                  value,

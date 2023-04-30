@@ -1,4 +1,3 @@
-
 #
 #
 # Function colBright
@@ -6,7 +5,7 @@
 # Dark colors would require white labels and light colors
 # would produce black labels
 #' @import grDevices
-#' @export
+# @export
 colBright <- function(colors, limit=130, bright="white", dark="black"){
   
 
