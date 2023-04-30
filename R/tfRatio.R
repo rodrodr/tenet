@@ -7,6 +7,7 @@
 #' @export
 tfRatio <- function(text, keyword, return.selected=FALSE, threshold=0){
 
+  text <- stringi::stri_trans_general(text, "Latin-ASCII")
   we <- stringi::stri_count(text, regex = keyword)
   wt <- stringi::stri_count(text,regex = "\\w+")
 
