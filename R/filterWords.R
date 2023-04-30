@@ -6,7 +6,7 @@
 #' @import stringi
 #' @import quanteda
 #' @import dplyr
-# @export
+#' @export
 filterWords <- function(corpus,
                         keywords,
                         rem.accent = TRUE,

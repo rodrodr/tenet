@@ -5,7 +5,7 @@
 #
 #' @import RColorBrewer
 #' @import wesanderson
-# @export
+#' @export
 selColors <- function(palette="Dark2", 
                       col.n=9, 
                       custom.pal=NULL){
