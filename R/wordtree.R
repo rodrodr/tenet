@@ -4,7 +4,6 @@
 # Creates a wordtree for visualizing keywords in context
 #' @import quanteda
 #' @import stringi
-#' @import tm
 #' @export
 wordtree <- function(
                     corpus, 
@@ -25,8 +24,8 @@ wordtree <- function(
     
     stp <- quanteda::stopwords(lang)
     
-    sample <- tm::removeWords(sample, stp)
-    
+    sample <- quanteda::char_remove(sample, stp)
+      
     for(i in 1:length(stp)){
       sample <- gsub(paste0("\\b",stp[i],"\\b"), "",sample)
     }

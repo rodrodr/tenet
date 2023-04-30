@@ -30,12 +30,8 @@
 #' - igraph
 #' - ape `phylo`
 #'
-#' @importFrom data.tree ToDataFrameNetwork
-#' @importFrom igraph as_data_frame
-#' @importFrom stats na.exclude
-#' @importFrom stats setNames
-#'
-#' @import stats
+#' @importFrom stats as.dist
+#' @importFrom stats hclust
 #'
 #' @md
 hclust2df <- function(data, ...) {

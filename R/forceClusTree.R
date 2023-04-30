@@ -29,7 +29,7 @@ forceClusTree <- function(corpus,
   
   # parte 1 - cluster
   tk <- quanteda::tokens(corpus, remove_punct = remove_punct) |> 
-    quanteda::tokens_remove(stopwords(lang)) |> 
+    quanteda::tokens_remove(quanteda::stopwords(lang)) |> 
     quanteda::dfm() |> 
     quanteda::dfm_trim(min_termfreq = 5, min_docfreq = 3)
   
@@ -62,7 +62,7 @@ forceClusTree <- function(corpus,
     dx$text <- gsub('"',"'", dx$text, fixed = T)
     
     for (i in 1:nrow(dx)){
-      dx$text[i] <- paste(stri_wrap(dx$text[i], 60, 0.0, ), collapse = "<br>")
+      dx$text[i] <- paste(stringi::stri_wrap(dx$text[i], 60, 0.0, ), collapse = "<br>")
     }
     
     text.node <- paste0('series.nodes.template.set(', '"tooltipHTML",','"',"<p><b>{name}:</b><br><br>{text}<br><br><img src='{poster}' width='300' height='450' style='display: block;margin-left: auto;margin-right: auto;'",'></p>");')
