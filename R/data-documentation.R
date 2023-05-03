@@ -41,20 +41,20 @@
 #' 
 #' This dataset contains 37 Inaugural Speeches from 1889 to 2023.
 #' 
-#' @format a [data.frame] object with the following variables:
+#' @format a quanteda [corpus] object with the following variables:
 #' * `doc_id` character; Document ID
 #' * `text` character; Text of the inaugural speech
 #' * `President` character; Name of the President who gave the speech
 #' * `Legislature` numeric; The number of the legislature
-#' `Date` date; Date of the Speech            
-#' `Military` logical; Military President      
-#' `Party` character; Political Party of the President         
-#' `Interrupted` logical; Was the administration interrupted?    
-#' `Interrupt.Cause` character, Cause of the interruption
+#' * `Date` date; Date of the Speech            
+#' * `Military` logical; Military President      
+#' * `Party` character; Political Party of the President         
+#' * `Interrupted` logical; Was the administration interrupted?    
+#' * `Interrupt.Cause` character, Cause of the interruption
 #' @examples
 #' # some operations on the corpus
 #' summary(bra.inaugural)
 #' @keywords data
-#' @source Presidencia and bonfim (2005).
+#' @source Presidencia.gov.br and Bonfim (2005).
 #' @examples
 "bra.inaugural"
