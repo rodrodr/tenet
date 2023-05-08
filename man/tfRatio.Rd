@@ -8,8 +8,11 @@ Calculates the ratio between the frequency of a term in each document compared t
 
 tfRatio(text,
         keyword,
+        threshold=0,
         return.selected=FALSE,
-        threshold=0)
+        remove.accent=TRUE,
+        identifier="Latin-ASCII"
+        )
 }
 
 \arguments{
@@ -17,9 +20,13 @@ tfRatio(text,
 
 \item{keyword}{Keyword to be searched in the documents.}
 
+\item{threshold}{Defines the limits for selecting those texts were the keyword is particularly more frequent than most texts.}
+
 \item{return.selected}{Logical. Should the ratios values be returned or only the index of documents accoding to the established threshold value.}
 
-\item{threshold}{Defines the limits for selecting those texts were the keyword is particularly more frequent than most texts.}
+\item{remove.accent}{Logical. Should the accents be removed from the text before the search? The default is TRUE. It is recommended to remove accents before using the function in the case of large number of texts.}
+
+\item{identifier}{a single string with transform identifier, see stri_trans_list (stringi package), or custom transliteration rules. The default is "Latin-ASCII".}
 }
 \details{
 Calculates the ratio of the frequency of a given term compared to its appearance in the whole corpus. This function is particularly useful for selecting texts according to themes or issues. It allows users to select only those documents containing the ideas for interest.
