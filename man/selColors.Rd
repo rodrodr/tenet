@@ -12,12 +12,11 @@ selColors(palette="Dark2",
 }
 
 \arguments{
-\item{palette}{A color palette included either on RColorBrewer or wesanderson. The default is "Dark2".}
+\item{palette}{A color palette included in selected packages. The default is "Dark2".}
 
 \item{col.n}{Total number of colors to be generated. The default is 9.}
 
-\item{custom.pal}{A list of basic colors to be used in the generated of the final color scale. The default is NULL.}
-
+\item{custom.pal}{A list of user defined colors to be used in the generated of the final color scale. The default is NULL.}
 }
 \details{
 Generates color scales with a large number of colors based on custom basic palettes or those contained in packages RColorBrewer and wesanderson.

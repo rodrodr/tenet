@@ -11,6 +11,7 @@ tagText <- function(text,
                     title="Document Title", 
                     keywords=NULL,
                     palette="EdwardHopper", 
+                    custom.pal=NULL,
                     bright=130, 
                     tooltip=TRUE, 
                     html.return=FALSE, 
@@ -21,11 +22,15 @@ tagText <- function(text,
   
   if (class(keywords)[1]=="dictionary2"){
     dic <- keywords
-    col <- selColors(palette, col.n = length(dic))
+    col <- selColors(palette, 
+                     col.n = length(dic), 
+                     custom.pal = custom.pal)
   }else{
     dic <- NULL
     kw <- keywords
-    col <- selColors(palette, col.n = length(kw))
+    col <- selColors(palette, 
+                     col.n = length(kw),
+                     custom.pal = custom.pal)
   }
   
   txt <- stringi::stri_trans_general(text, "Latin-ASCII")
