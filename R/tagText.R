@@ -8,24 +8,28 @@
 #' @import utils
 #' @export
 tagText <- function(text, 
-                         title="Document Title", 
-                         keywords=NULL,
-                         dic=NULL,
-                         col="red", 
-                         bright=130, 
-                         tooltip=TRUE, 
-                         html.return=FALSE, 
-                         viewer=TRUE, 
-                         url.return=FALSE, 
-                         margin=50, 
-                         font.size=12){
+                    title="Document Title", 
+                    keywords=NULL,
+                    palette="EdwardHopper", 
+                    bright=130, 
+                    tooltip=TRUE, 
+                    html.return=FALSE, 
+                    viewer=TRUE, 
+                    url.return=FALSE, 
+                    margin=50, 
+                    font.size=12){
   
-  kw <- keywords
+  if (class(keywords)[1]=="dictionary2"){
+    dic <- keywords
+    col <- selColors(palette, col.n = length(dic))
+  }else{
+    kw <- keywords
+    col <- selColors(palette, col.n = length(kw))
+  }
   
   txt <- stringi::stri_trans_general(text, "Latin-ASCII")
   
   tcol <- colBright(col, limit = bright)
-  
   
   txt <- gsub(pattern = "\n"," <br>", txt, 
               ignore.case = T)
@@ -69,14 +73,15 @@ tagText <- function(text,
       tp <- c(tp,tnm)
       
     }
-
+    
+    
     kw <- kwd
-
+    
     tu <- unique(tp)
-
+    
     
     ky <- paste0("KEYKUE",1:length(unique(tp)))
-
+    
     
     for(i in 1:length(tu)){
       kz <- c(kz, rep(ky[i], length(tp[tp==tu[i]])))  
@@ -110,7 +115,7 @@ tagText <- function(text,
     if(tooltip==T & ! is.null(dic)){
       bx <- paste0("<div class='tooltip' style='color:",txcol[i],"; background-color:",cof[i],"'>","$1","<span class='tooltiptext' style='color:",txcol[i],"; background-color:",cof[i],"'>",kz[i],"</span></div>")
     }else{
-        bx <- paste0("<span style='color:",txcol[i],"; background-color:",cof[i],"'>","$1","</span>")
+      bx <- paste0("<span style='color:",txcol[i],"; background-color:",cof[i],"'>","$1","</span>")
       
     }
     
@@ -166,12 +171,12 @@ tagText <- function(text,
   visibility: visible;
   opacity: 1;
 }</style><body><h1>", title,"</h1><br><br>",paste0(txt, collapse="<br>"),"</body></html>")
-    }
-
+  }
+  
   tp <- tempfile(fileext = ".html")
-
+  
   write(ht, tp)
-
+  
   if(html.return==F & url.return==F){
     if(viewer==T){
       rstudioapi::viewer(tp)
@@ -183,6 +188,7 @@ tagText <- function(text,
   }else{
     return(ht)
   }
-
+  
 }
+
 
