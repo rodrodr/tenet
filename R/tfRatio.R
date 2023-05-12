@@ -5,7 +5,7 @@
 #
 #' @import stringi
 #' @export
-tfRatio <- function(text, keyword, threshold=0, return.selected=FALSE, remove.accent=T, identifier="Latin-ASCII"){
+tfRatio <- function(text, keyword, threshold=0, return.selected=FALSE, remove.accent=TRUE, identifier="Latin-ASCII"){
 
   if(remove.accent==T){
     text <- stringi::stri_trans_general(text, identifier)

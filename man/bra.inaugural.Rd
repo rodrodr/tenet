@@ -5,21 +5,21 @@
 \alias{bra.inaugural}
 \title{Brazilian Presidents' Inaugural Speeches}
 \format{
-a \link{data.frame} object with the following variables:
+a quanteda \link{corpus} object with the following variables:
 \itemize{
 \item \code{doc_id} character; Document ID
 \item \code{text} character; Text of the inaugural speech
 \item \code{President} character; Name of the President who gave the speech
 \item \code{Legislature} numeric; The number of the legislature
-\code{Date} date; Date of the Speech
-\code{Military} logical; Military President
-\code{Party} character; Political Party of the President
-\code{Interrupted} logical; Was the administration interrupted?
-\code{Interrupt.Cause} character, Cause of the interruption
+\item \code{Date} date; Date of the Speech
+\item \code{Military} logical; Military President
+\item \code{Party} character; Political Party of the President
+\item \code{Interrupted} logical; Was the administration interrupted?
+\item \code{Interrupt.Cause} character, Cause of the interruption
 }
 }
 \source{
-Presidencia and bonfim (2005).
+Presidencia.gov.br and Bonfim (2005).
 }
 \usage{
 bra.inaugural
