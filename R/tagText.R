@@ -23,6 +23,7 @@ tagText <- function(text,
     dic <- keywords
     col <- selColors(palette, col.n = length(dic))
   }else{
+    dic <- NULL
     kw <- keywords
     col <- selColors(palette, col.n = length(kw))
   }
