@@ -50,7 +50,8 @@
 #' * `Military` logical; Military President      
 #' * `Party` character; Political Party of the President         
 #' * `Interrupted` logical; Was the administration interrupted?    
-#' * `Interrupt.Cause` character, Cause of the interruption
+#' * `Interrupt.Cause` character; Cause of the interruption
+#' * `link_photo` character; URL for the photos of the President 
 #' @examples
 #' # some operations on the corpus
 #' summary(bra.inaugural)

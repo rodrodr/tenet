@@ -15,7 +15,8 @@ a quanteda \link{corpus} object with the following variables:
 \item \code{Military} logical; Military President
 \item \code{Party} character; Political Party of the President
 \item \code{Interrupted} logical; Was the administration interrupted?
-\item \code{Interrupt.Cause} character, Cause of the interruption
+\item \code{Interrupt.Cause} character; Cause of the interruption
+\item \code{link_photo} character; URL for the photos of the President
 }
 }
 \source{
