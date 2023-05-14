@@ -63,7 +63,8 @@ corNet <- function(cor.list,
   
   p <- p + theme(plot.title = ggtext::element_markdown(),
                  plot.margin = unit(c(0.5,0.5,0.5,0.5),
-                                    units = "cm"))
+                                    units = "cm"), 
+                 text = element_text(family=family))
   
   return(p) 
 }
