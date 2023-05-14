@@ -14,7 +14,8 @@ corNet <- function(cor.list,
                    link.col=c("red","steelblue1"),
                    link.alpha=0.3,
                    link.curvature=0.25,
-                   node.col="purple"){
+                   node.col="purple",
+                   family="sans"){
   
   cor_g <- igraph::graph_from_data_frame(cor.list$edges, 
                                          directed = F, 
@@ -55,7 +56,7 @@ corNet <- function(cor.list,
   
   p <- p + ggnetwork::geom_nodes(aes(size=.data$Frequency), col=node.col)
   
-  p <- p + ggnetwork::geom_nodetext_repel(aes(label = .data$vertex.names))
+  p <- p + ggnetwork::geom_nodetext_repel(aes(label = .data$vertex.names), family=family)
   
   p <- p + 
     theme_void()
