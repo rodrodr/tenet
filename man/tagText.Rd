@@ -52,16 +52,16 @@ as liberal democracies, electoral democracies,
 electoral autocracies, and full autocracies.")
 
 # Find words starting with "democ" in the text
-tagText(tx, keywords="democ")
+tagText(tx, keywords="democr")
 
 library(quanteda)
 
 # Creates a dictionary to classify regimes
-reg <- dictionary(list(
+regimes <- dictionary(list(
                   Democracy=c("democ"),
                   Autocracy=c("autoc")
                       ))
 
 # Change the default colors
-tagText(tx, keywords=reg)
+tagText(tx, keywords=regimes)
 }
