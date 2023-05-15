@@ -31,5 +31,6 @@ This dataset contains 37 Inaugural Speeches from 1889 to 2023.
 \examples{
 # some operations on the corpus
 summary(bra.inaugural)
+bra.inaugural
 }
 \keyword{data}

@@ -4,7 +4,10 @@
 # corpus.
 #
 #' @import quanteda
-#' @import dplyr
+#' @importFrom dplyr group_by
+#' @importFrom dplyr mutate
+#' @importFrom dplyr row_number
+#' @importFrom dplyr n
 #' @export
 filterWordsAttribute <- function(corpus,
                                  docvar,         

@@ -8,6 +8,8 @@
 #' @import quanteda
 #' @import quanteda.textstats
 #' @importFrom stats cor
+#' @importFrom dplyr slice_head
+#' @importFrom dplyr slice_tail
 #' @export
 corTerms <- function(corpus, 
                      min.freq=20,

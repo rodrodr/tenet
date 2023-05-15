@@ -5,7 +5,10 @@
 #
 #' @import stringi
 #' @import quanteda
-#' @import dplyr
+#' @importFrom dplyr group_by
+#' @importFrom dplyr mutate
+#' @importFrom dplyr row_number
+#' @importFrom dplyr n
 #' @export
 filterWords <- function(corpus,
                         keywords,
@@ -54,7 +57,7 @@ filterWords <- function(corpus,
   
   dt <- dt |> 
     dplyr::group_by(.data$name) |> 
-    dplyr::mutate(index = row_number()/n())
+    dplyr::mutate(index = dplyr::row_number()/dplyr::n())
   
   dt <- dt[!tolower(dt$word) %in% stopwords(lang),]
   

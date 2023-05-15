@@ -15,7 +15,7 @@
 #' head(quanteda::docvars(br.films), 10)
 #' @keywords data
 #' @source OMDB.
-#' @examples
+#' @examples br.films
 "br.films"
 
 
@@ -33,7 +33,7 @@
 #' summary(spa.inaugural)
 #' @keywords data
 #' @source Moncloa.
-#' @examples
+#' @examples spa.inaugural
 "spa.inaugural"
 
 
@@ -57,5 +57,5 @@
 #' summary(bra.inaugural)
 #' @keywords data
 #' @source Presidencia.gov.br and Bonfim (2005).
-#' @examples
+#' @examples bra.inaugural
 "bra.inaugural"

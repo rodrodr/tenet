@@ -28,5 +28,6 @@ This dataset contains 260 Brazilian fictional films from 1985 to 2023.
 # some operations on the corpus
 summary(br.films)
 head(quanteda::docvars(br.films), 10)
+br.films
 }
 \keyword{data}
