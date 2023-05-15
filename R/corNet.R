@@ -23,8 +23,8 @@ corNet <- function(cor.list,
   
   cel <- igraph::as_data_frame(cor_g, 'edges')
   
-  cel$Direction <- "Negative"
-  cel$Direction[cel$value>0] <- "Positive"
+  cel$Correlation <- "Negative"
+  cel$Correlation[cel$value>0] <- "Positive"
   
   names(cel)[1:2] <- c("from","to")
   
@@ -47,9 +47,9 @@ corNet <- function(cor.list,
                            xend = .data$xend, 
                            yend = .data$yend)) +
     ggnetwork::geom_edges(
-      aes(color=.data$Direction, # Color of links/edges
-          linewidth=.data$Value), # Size
-      alpha=link.alpha,           # transparency
+      aes(color=.data$Correlation, 
+          linewidth=.data$Value), 
+      alpha=link.alpha,           
       curvature = link.curvature)+
     scale_color_manual(
       values=link.col)
