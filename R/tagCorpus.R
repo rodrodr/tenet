@@ -19,7 +19,7 @@ tagCorpus <- function(corpus,
                       pagination = TRUE, 
                       defaultPageSize=10){
   
-  if(reshape.dic==FALSE){
+  if(reshape.dic==TRUE){
     cp <- quanteda::corpus_reshape(corpus, reshape.to)
   }
   
