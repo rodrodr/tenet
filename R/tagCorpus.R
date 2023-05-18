@@ -148,11 +148,6 @@ tagCorpus <- function(corpus,
                          pagination = pagination,
                          defaultPageSize = defaultPageSize,
                          columns = list(
-                           docid=colDef(name="Doc.",
-                                        filterable = T,
-                                        width = 120),
-                           order=colDef(name="Order",
-                                        width = 80),
                            text=colDef(name="Paragraph", 
                                        filterable = T,
                                        html = T),
@@ -161,13 +156,7 @@ tagCorpus <- function(corpus,
                                            html=T, width=140),
                            cats=colDef(name="All Categories",
                                        filterable = T,
-                                       html=T, width=140),
-                           matches=colDef(name="Matches",
-                                          filterable = T,
-                                          html=T, width=100),
-                           ncats=colDef(name="Cat. No.",
-                                        filterable = T,
-                                        html=T, width=80)))
+                                       html=T, width=140)))
     
   }
 }
