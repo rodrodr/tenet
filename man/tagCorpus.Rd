@@ -23,9 +23,8 @@ tagCorpus(corpus,
 \item{palette}{The color palette for the text to be highlighted. The default is "EdwardHopper".}
 \item{bright}{The cutoff value for the color brightness to define if a label text will be white or black. The default is 130.}
 \item{pagination}{Indicates whether the table will organized according to equal-sized pages. The default is TRUE.}
-\item{defaultPageSize}{Default page size (number of elements) for the table. The default is 10.
+\item{defaultPageSize}{Default page size (number of elements) for the table. The default is 10.}
 \item{show.details}{Logical. Shows the order of the text, the document name, and statistics of terms and categories. The default is TRUE.}
-}
 }
 \details{
 The function tagCorpus finds and highlights words and expressions in a given text according to a dictionary. It was designed to help qualitative researchers to locate themes and issues in narrative texts and documents. Therefore, it is meant to be an exploratory tool for qualitative analysis and a step in a broader coding process of text.
