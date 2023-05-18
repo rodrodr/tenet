@@ -111,8 +111,6 @@ tagCorpus <- function(corpus,
   data$order <- ave(data$order, data$docid, FUN=seq_along)
   
   
-  if(show.details==TRUE){
-  
   reactable::reactable(data,
                        resizable = TRUE,
                        wrap=TRUE,
@@ -121,9 +119,11 @@ tagCorpus <- function(corpus,
                        columns = list(
                          docid=colDef(name="Doc.",
                                       filterable = T,
-                                      width = 120),
+                                      width = 120, 
+                                      show = show.details),
                          order=colDef(name="Order",
-                                      width = 80),
+                                      width = 80, 
+                                      show = show.details),
                          text=colDef(name="Paragraph", 
                                      filterable = T,
                                      html = T),
@@ -135,28 +135,11 @@ tagCorpus <- function(corpus,
                                      html=T, width=140),
                          matches=colDef(name="Matches",
                                         filterable = T,
-                                        html=T, width=100),
+                                        html=T, width=100, 
+                                        show = show.details),
                          ncats=colDef(name="Cat. No.",
                                       filterable = T,
-                                      html=T, width=80)))
+                                      html=T, width=80, 
+                                      show = show.details)))
     
-  }else{
-
-    reactable::reactable(data[,c("text","main_cat","cats")],
-                         resizable = TRUE,
-                         wrap=TRUE,
-                         pagination = pagination,
-                         defaultPageSize = defaultPageSize,
-                         columns = list(
-                           text=colDef(name="Paragraph", 
-                                       filterable = T,
-                                       html = T),
-                           main_cat=colDef(name="Main Category",
-                                           filterable = T,
-                                           html=T, width=140),
-                           cats=colDef(name="All Categories",
-                                       filterable = T,
-                                       html=T, width=140)))
-    
-  }
 }
