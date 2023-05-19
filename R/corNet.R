@@ -47,7 +47,7 @@ corNet <- function(cor.list,
   
   p <- p + ggraph::geom_edge_arc(aes(edge_width=.data$Value,
                                      color=.data$Correlation),
-                                 strength=link.curvature)
+                                 strength=link.curvature, alpha=link.alpha)
   
   p <- p+ ggraph::scale_edge_color_manual(values = link.col)+
     ggraph::geom_node_point(aes(size = .data$Frequency), color=node.col)+
