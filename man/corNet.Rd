@@ -10,7 +10,8 @@ corNet(cor.list,
        link.alpha=0.3,
        link.curvature=0.25,
        node.col="purple",
-       family="sans")
+       family="sans",
+       layout="fr")
 }
 
 \arguments{
@@ -20,6 +21,7 @@ corNet(cor.list,
 \item{link.curvature}{The curvature of the links/edges in the graph. The default is 0.25.}
 \item{node.col}{Indicates the degree of correlation that will be used to filter the values returned. The default is "purple".}
 \item{family}{Font family to be used in labeling values. The default is "sans".}
+\item{layout}{The network layout of the graph. The possible options are: "circle","sphere","nicely","fr","gem","kk","mds","dh","lgl","sugiyama". The default is "fr".}
 }
 \details{
 The function corNet generates a network graph (sociogram) for the correlation among words in a corpus.  
@@ -32,7 +34,7 @@ A ggplot2 chart.
 cb <- bra.inaugural
 
 # Generates a list of correlations
-ll <- corTerms( cb, 
+ll <- corTerms(cb, 
                 lang = "pt", 
                 min.freq = 50, 
                 n.terms = 50, 
@@ -44,6 +46,5 @@ ll <- corTerms( cb,
 
 # Plots the sociogram
 corNet(ll)
-
 }
 

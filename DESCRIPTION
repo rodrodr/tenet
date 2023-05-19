@@ -9,7 +9,8 @@ Description: The present package gathers functions for text mining and textual d
 License: GPL (>= 3) 
 Imports: stringi, grDevices, quanteda, rstudioapi, RColorBrewer, wesanderson,
 		 ggplot2, ggtext, quanteda.textstats, MetBrewer, ghibli, lisa, paletteer, rtist,
-		 FactoMineR, ggiraph, ggthemes, reshape2, ggnetwork, igraph, dplyr, reactable
+		 FactoMineR, ggiraph, ggthemes, reshape2, igraph, dplyr, reactable, 
+		 tidygraph, ggraph
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

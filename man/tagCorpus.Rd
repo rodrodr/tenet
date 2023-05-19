@@ -12,7 +12,8 @@ tagCorpus(corpus,
           palette = "EdwardHopper", 
           bright = 130,
           pagination = TRUE, 
-          defaultPageSize=10)
+          defaultPageSize=10,
+          show.details=TRUE)
 }
 
 \arguments{

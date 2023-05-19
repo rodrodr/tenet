@@ -6,22 +6,19 @@
 #
 #' @import ggplot2
 #' @importFrom igraph graph_from_data_frame
-#' @importFrom igraph as_data_frame
+#' @importFrom tidygraph as_tbl_graph
 #' @import stringi
-#' @import ggnetwork
+#' @import ggraph
 #' @export
 corNet <- function(cor.list, 
                    link.col=c("red","steelblue1"),
                    link.alpha=0.3,
                    link.curvature=0.25,
                    node.col="purple",
-                   family="sans"){
+                   family="sans",
+                   layout="fr"){
   
-  cor_g <- igraph::graph_from_data_frame(cor.list$edges, 
-                                         directed = F, 
-                                         vertices = cor.list$vertices)
-  
-  cel <- igraph::as_data_frame(cor_g, 'edges')
+  cel <- cor.list$edges  
   
   cel$Correlation <- "Negative"
   cel$Correlation[cel$value>0] <- "Positive"
@@ -36,35 +33,33 @@ corNet <- function(cor.list,
   cel$from <- stringi::stri_trans_general(cel$from, "Latin-ASCII")
   cel$to <- stringi::stri_trans_general(cel$to, "Latin-ASCII")
   
-  n <- ggnetwork::ggnetwork(cel)
-  n <- merge(n, ver, by="vertex.names", all.x=T)
+  cel$Value <- abs(cel$value)
   
-  n$Value <- abs(n$value)
+  cel$value <- NULL
   
-  p <- ggplot2::ggplot(n, 
-                       aes(x = .data$x, 
-                           y = .data$y, 
-                           xend = .data$xend, 
-                           yend = .data$yend)) +
-    ggnetwork::geom_edges(
-      aes(color=.data$Correlation, 
-          linewidth=.data$Value), 
-      alpha=link.alpha,           
-      curvature = link.curvature)+
-    scale_color_manual(
-      values=link.col)
+  cor_g <- igraph::graph_from_data_frame(cel, 
+                                         directed = F, 
+                                         vertices = ver)
   
-  p <- p + ggnetwork::geom_nodes(aes(size=.data$Frequency), col=node.col)
+  n <- tidygraph::as_tbl_graph(cor_g)
   
-  p <- p + ggnetwork::geom_nodetext_repel(aes(label = .data$vertex.names), family=family)
+  p <- ggraph::ggraph(n, layout="igraph", algorithm=layout)
   
-  p <- p + 
-    theme_void()
+  p <- p + ggraph::geom_edge_arc(aes(edge_width=.data$Value,
+                                     color=.data$Correlation),
+                                 strength=link.curvature)
   
-  p <- p + theme(plot.title = ggtext::element_markdown(),
-                 plot.margin = unit(c(0.5,0.5,0.5,0.5),
-                                    units = "cm"), 
-                 text = element_text(family=family))
+  p <- p+ ggraph::scale_edge_color_manual(values = link.col)+
+    ggraph::geom_node_point(aes(size = .data$Frequency), color=node.col)+
+    ggraph::scale_edge_width_continuous(range = c(0.2, 2))+
+    ggraph::geom_node_text(aes(label=.data$name), repel = T, check_overlap = T, 
+                           family=family) + 
+    theme_void()+ 
+    theme(plot.title = ggtext::element_markdown(),
+          plot.margin = unit(c(0.5,0.5,0.5,0.5),
+                             units = "cm"), 
+          text = element_text(family=family))
   
-  return(p) 
+  return(p)
+  
 }
