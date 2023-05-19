@@ -12,7 +12,7 @@
 #' @export
 corNet <- function(cor.list, 
                    link.col=c("red","steelblue1"),
-                   link.alpha=0.3,
+                   link.alpha=0.7,
                    link.curvature=0.25,
                    node.col="purple",
                    family="sans",
@@ -52,7 +52,7 @@ corNet <- function(cor.list,
   p <- p+ ggraph::scale_edge_color_manual(values = link.col)+
     ggraph::geom_node_point(aes(size = .data$Frequency), color=node.col)+
     ggraph::scale_edge_width_continuous(range = c(0.2, 2))+
-    ggraph::geom_node_text(aes(label=.data$name), repel = T, check_overlap = T, 
+    ggraph::geom_node_text(aes(label=.data$name), repel = T, check_overlap = F, 
                            family=family) + 
     theme_void()+ 
     theme(plot.title = ggtext::element_markdown(),
