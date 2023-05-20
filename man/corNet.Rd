@@ -7,7 +7,7 @@ Generates a network chart of correlations among words in a corpus.
 \usage{
 corNet(cor.list, 
        link.col=c("red","steelblue1"),
-       link.alpha=0.3,
+       link.alpha=0.7,
        link.curvature=0.25,
        node.col="purple",
        family="sans",

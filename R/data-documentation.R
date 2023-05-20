@@ -59,3 +59,28 @@
 #' @source Presidencia.gov.br and Bonfim (2005).
 #' @examples bra.inaugural
 "bra.inaugural"
+
+
+#' Political Corruption in Spain 
+#' 
+#' This dataset contains the transcription of 7 focus groups on political corruption in Spain. The study was performed by the Centro de Investigaciones Sociológicas (CIS) under the number E2863 in March, 2011. 
+#' 
+#' @format a data.frame object with the following variables:
+#' * `Persona` character; The person speaking.
+#' * `text` character; Text containing the intervention of each participant.
+#' * `Order` integer; Order in the overall interventions.
+#' * `Tipo.Persona` character; Tipe of participant: Moderator, Female, or Male. 
+#' * `Estudio` character; Study number: E2863.            
+#' * `Grupo.Discusion` integer; Number of the focus group.      
+#' * `Ciudad` character; Name of the city where the focus group took place.         
+#' * `Fecha` date; Date of the focus group.  
+#' * `Grupo.Demografico` character; Name of the demographic group: "Housewives", "Businessmen","University Students", "Public Servants", "Occupied - Young", "Workers", and "Liberal Professionals". 
+#' * `Desc.Grupo` character; Detailed description of each demographic group.
+#' * `Edad` character; Age interval of participants.
+#' @examples
+#' # some operations on the data
+#' summary(cis.corrupt)
+#' @keywords data
+#' @source CIS (2011).
+#' @examples cis.corrupt
+"cis.corrupt"
