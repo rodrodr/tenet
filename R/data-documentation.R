@@ -84,3 +84,21 @@
 #' @source CIS (2011).
 #' @examples cis.corrupt
 "cis.corrupt"
+
+
+#' Pirandello - Six Characters in Search of an Author 
+#' 
+#' This dataset contains the dialogues of the 1921 play Six Characters in Search of an Author by the Italian writer (and Nobel laureate) Luigi Pirandello. The Spanish version contained here was translated in 1926 by Félix Azzati and is currently available at Wikipedia.
+#' 
+#' @format a [data.frame] object with the following variables:
+#' * `Order` numeric; The order of the speech in the play.
+#' * `Personaje` character; The character responsible for the speech.
+#' * `Action` character; Description of actions, emotions or gestures of the character immediately before his or her speech.
+#' * `text` character; The text of the speech.
+#' @examples
+#' # some operations on the corpus
+#' summary(Pirandello)
+#' @keywords data
+#' @source Wikipedia: https://es.wikisource.org/wiki/Seis_personajes_en_busca_de_autor.
+#' @examples Pirandello
+"Pirandello"
