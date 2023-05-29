@@ -18,7 +18,7 @@ corTerms(corpus,
 \item{corpus}{A quanteda corpus containing texts.}
 \item{min.freq}{The minimum frequency to be included in the analysis. The default is 20.}
 \item{lang}{The language for removing stopwords. The default is Spanish: "es".}
-\item{method}{The correlation method to be employed in the correlation. The default is "spearman", the other options are "pearson" and "kendall".}
+\item{method}{The correlation method to be employed in the correlation. The default is "spearman", the other options are "pearson", "kendall", and "yule" (this last one converts frequencies into binary data before calculating the correlation).}
 \item{r.lim}{Indicates the degree of correlation that will be used to filter the values returned. The default is 0.}
 \item{n.terms}{Indicates the number of terms to be returned by the function. The default is 50.}
 \item{remove.wordlist}{List of words to be removed from the analysis alonside stopwords. The default is NULL.}
