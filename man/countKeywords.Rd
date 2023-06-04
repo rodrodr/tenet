@@ -27,7 +27,8 @@ A data.frame object containing the groups (all if the group.var argument is not 
 }
 \examples{
 # Create a corpus object
-cb <- spa.inaugural
+library(quanteda)
+cb <- corpus(spa.inaugural)
 
 # use the dic.pol.es dictionary
 dic <- dic.pol.es
