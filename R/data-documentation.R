@@ -102,3 +102,20 @@
 #' @source Wikipedia: https://es.wikisource.org/wiki/Seis_personajes_en_busca_de_autor.
 #' @examples Pirandello
 "Pirandello"
+
+
+#' dic.pol.es - Spanish Political Discourses Dictionary 
+#' 
+#' This dictionary contains a nested (two-level) set of codes for analyzing Spanish inaugural speeches.
+#' 
+#' @format a quanteda [dictionary] object with the following levels:
+#' * `level1` character; Broad political issues.
+#' * `level2` character; Specific codes.
+#' * `keywords` character; Terms to be employed in the search for each code/issue.
+#' @examples
+#' # some operations on the corpus
+#' summary(Pirandello)
+#' @keywords dictionary
+#' @source Own elaboration.
+#' @examples dic.pol.es
+"dic.pol.es"

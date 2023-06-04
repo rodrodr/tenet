@@ -33,6 +33,14 @@ corTerms <- function(corpus,
   fx <- quanteda::dfm_trim(fm, min_termfreq = min.freq)
   xy <- quanteda::convert(fx,to="data.frame")
   
+  if(method=="yule"){
+    
+    xy[xy>0] <-1
+    
+    method <- "pearson"
+  }
+  
+  
   xm <- cor(xy[,c(2:ncol(xy))], method = method)
   
   xx <- reshape2::melt(xm, varnames = c("term1","term2"))
