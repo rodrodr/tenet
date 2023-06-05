@@ -24,7 +24,7 @@ forceClusTree(corpus,
               include.text=FALSE,
               img.docvar=NULL,
               clust.method="euclidean",
-              div.name="chartdiv")
+              div.name="chartdivclus")
 }
 
 \arguments{
