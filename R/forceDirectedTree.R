@@ -66,7 +66,7 @@ forceDirectedTree <- function(json_data, attraction= -5, collapsed=FALSE, palett
     <script type="text/javascript">//<![CDATA[
   
       
-var root = am5.Root.new("chartdiv");
+var root = am5.Root.new("',div.name,'");
 
 // Set themes
 // https://www.amcharts.com/docs/v5/concepts/themes/
