@@ -72,7 +72,7 @@ forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed
   am4core.useTheme(am4themes_animated);
   // Themes end
   
-  var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+  var chart = am4core.create("',div.name,'", am4plugins_forceDirected.ForceDirectedTree);
   
   var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())', co ,'
   
