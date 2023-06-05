@@ -11,9 +11,9 @@ forceDirectedTree <- function(json_data, attraction= -5, collapsed=FALSE, palett
   
   co <- paste0('am5.color("', co,'")',collapse = ",\n")
   
-  colla <- ""
+  colla <- "" 
   sl <- 1
-  
+
   if(show.link==F){
     sl <- 0
   }

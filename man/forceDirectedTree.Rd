@@ -30,7 +30,7 @@ forceDirectedTree(json_data,
 
 \item{col.n}{The number of colors to represent. The default is 9.}
 
-\item{show.link}{Logical. Indicates that links connecting nodes will be visible. The default is TRUE.}
+\item{show.link}{Logical. Indicates that links connecting nodes will be made visible. The default is TRUE.}
 
 \item{url.return}{Logical. Indicates if the function should return the url address of the html file. The default is FALSE.}
 

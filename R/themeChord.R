@@ -134,8 +134,6 @@ var hoverState = linkTemplate.states.create("hover", {
   strokeOpacity: 0});
 
 
-
-
 // Set data
 // https://www.amcharts.com/docs/v5/charts/flow-charts/#Setting_data
 series.data.setAll([')
