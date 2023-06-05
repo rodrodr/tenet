@@ -23,7 +23,8 @@ forceClusTree(corpus,
               BodyStrength=-10,
               include.text=FALSE,
               img.docvar=NULL,
-              clust.method="euclidean")
+              clust.method="euclidean",
+              div.name="chartdiv")
 }
 
 \arguments{
@@ -64,6 +65,9 @@ forceClusTree(corpus,
 \item{img.docvar}{Indicates the name of the variable in the corpus metadata containing the url links to the images to be displayed in the tooltip. The default is NULL.}
 
 \item{clust.method}{Indicates the method for calculating the text distance. The options are: "euclidean" (default), "manhattan", "maximum", "canberra", and "minkowski".}
+
+\item{div.name}{Name of the div element employed to contain the graph. It is useful when you use the same type of graph multiple times in the same markdown page, for instance. The default is "chartdiv".}
+
 }
 \details{
 The function generates a Force Directed Hierarchical Cluster Tree Network Graph for quanteda corpuses. It calculates the similarity among texts and organizes them according to a tree structure. The interactive traits of the chart allow users to explore these relationships with more depth.}

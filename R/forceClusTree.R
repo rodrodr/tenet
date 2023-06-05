@@ -24,7 +24,8 @@ forceClusTree <- function(corpus,
                            BodyStrength=-10,
                            include.text=FALSE,
                            img.docvar=NULL,
-                           clust.method="euclidean"){
+                           clust.method="euclidean",
+                           div.name="chartdivclus"){
   
   
   # parte 1 - cluster
@@ -161,7 +162,7 @@ forceClusTree <- function(corpus,
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
   
-  #chartdivclus {
+  #', div.name, ' {
     width: 100%;
     height: ',height, 'px;
   }
@@ -172,14 +173,14 @@ forceClusTree <- function(corpus,
         <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
         <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-        <div id="chartdivclus"></div>
+        <div id="', div.name, '"></div>
   
     
       <!-- TODO: Missing CoffeeScript 2 -->
     
       <script type="text/javascript">
     
-          var root = am5.Root.new("chartdivclus");
+          var root = am5.Root.new("', div.name,'");
   
           // Set themes
           // https://www.amcharts.com/docs/v5/concepts/themes/
