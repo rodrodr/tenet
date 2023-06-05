@@ -6,7 +6,6 @@ Creates a Force Directed Tree Chart for visualizing hierarchical data.
 }
 \usage{
 forceDirectedTree(json_data, 
-                  desc="units", 
                   attraction=-5, 
                   collapsed=FALSE, 
                   palette="Spectral", 
@@ -22,8 +21,6 @@ forceDirectedTree(json_data,
 
 \arguments{
 \item{json_data}{A json string character as the one produced by the function jsonTree.}
-
-\item{desc}{Description of the value units to be included in the tooltip.}
 
 \item{attraction}{The intensity of attraction among nodes. The default is -5.}
 

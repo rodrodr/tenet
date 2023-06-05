@@ -3,15 +3,13 @@
 # forceDirectedTree
 # 
 #' @export
-forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed=FALSE, palette="Spectral", col.n=9, show.link=TRUE, url.return=FALSE, html.return=FALSE, viewer=TRUE, height=800, max.radius=5, div.name="chartdiv"){
+forceDirectedTree <- function(json_data, attraction= -5, collapsed=FALSE, palette="Spectral", col.n=9, show.link=TRUE, url.return=FALSE, html.return=FALSE, viewer=TRUE, height=800, max.radius=5, div.name="chartdiv"){
   
   max.radius <- as.character(max.radius)
   
   co <- selColors(palette = palette, col.n = col.n)
   
-  co <- paste0('am4core.color("', co,'")',collapse = ",\n")
-  
-  co <- paste('\nnetworkSeries.colors.list = [\n', co, '\n];\n')
+  co <- paste0('am5.color("', co,'")',collapse = ",\n")
   
   colla <- ""
   sl <- 1
@@ -57,66 +55,76 @@ forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed
   
   </head>
   <body>
-      <script src="https://www.amcharts.com/lib/4/core.js"></script>
-  <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-  <script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
-  <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-  <div id="',div.name,'"></div>
+<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/hierarchy.js"></script>
+<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>  
+
+<div id="',div.name,'"></div>
   
     <!-- TODO: Missing CoffeeScript 2 -->
   
     <script type="text/javascript">//<![CDATA[
   
       
-  // Themes begin
-  am4core.useTheme(am4themes_animated);
-  // Themes end
+var root = am5.Root.new("chartdiv");
+
+// Set themes
+// https://www.amcharts.com/docs/v5/concepts/themes/
+root.setThemes([
+  am5themes_Animated.new(root)
+]);
+
+var data = {
+  value: 0,
+  children: [')
   
-  var chart = am4core.create("',div.name,'", am4plugins_forceDirected.ForceDirectedTree);
-  
-  var networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())', co ,'
-  
-  networkSeries.data = [')
   
   
-  partB <- paste0('];
+  partB <- paste0(']};
+                
+// Create wrapper container
+var container = root.container.children.push(am5.Container.new(root, {
+  width: am5.percent(100),
+  height: am5.percent(100),
+  layout: root.verticalLayout
+}));
+
+var series = container.children.push(am5hierarchy.ForceDirected.new(root, {
+  singleBranchOnly: false,
+  downDepth: 2,
+  topDepth: 1,
+  initialDepth: 1,
+  valueField: "value",
+  categoryField: "name",
+  childDataField: "children",
+  idField: "name",
+  linkWithField: "linkWith",
+  manyBodyStrength: ', attraction, ',
+  minRadius: am5.percent(0.35),
+  maxRadius: am5.percent(', max.radius ,'),
+  centerStrength: 0.8
+}));
+
+series.get("colors").set("colors",[
+', co ,'
+]);
+
+series.links.template.set("strength", 0.9);
+
+series.links.template.set("strokeOpacity", ',sl,');
+
+series.data.setAll([data]);
+
+series.set("selectedDataItem", series.dataItems[0]);
+
+// Make stuff animate on load
+series.appear(1000, 100);
+
+</script>
+</body>
+</html>')
   
-  networkSeries.dataFields.linkWith = "linkWith";
-  networkSeries.dataFields.name = "name";
-  networkSeries.dataFields.id = "name";
-  networkSeries.dataFields.collapsed = "true";
-  networkSeries.dataFields.value = "value";
-  networkSeries.dataFields.children = "children";
-  networkSeries.links.template.distance = 1;
-  networkSeries.nodes.template.tooltipText = "{name}: [font-size: 30px;]{value} [font-size: 12px;] ', desc ,'.";
-  networkSeries.nodes.template.fillOpacity = 1;
-  networkSeries.nodes.template.outerCircle.scale = 1;
   
-  networkSeries.nodes.template.label.text = "{name}"
-  networkSeries.fontSize = 14 ;
-  networkSeries.nodes.template.label.hideOversized = true;
-  networkSeries.nodes.template.label.truncate = true;
-  networkSeries.minRadius = am4core.percent(0.35);
-  networkSeries.maxRadius = am4core.percent(', max.radius ,');
-  networkSeries.manyBodyStrength =', attraction, ';
-  networkSeries.links.template.strokeOpacity = ',sl,';', colla, '
-  
-    //]]></script>
-  
-    <script>
-      // tell the embed parent frame the height of the content
-      if (window.parent && window.parent.parent){
-        window.parent.parent.postMessage(["resultsFrame", {
-          height: document.body.getBoundingClientRect().height,
-          slug: "56rk84ve"
-        }], "*")
-      }
-  
-      // always overwrite window.name, in case users try to set it manually
-      window.name = "result"
-    </script>
-  </body>
-  </html>')
   
   ht <- paste(partA, json_data, partB, collapse = "\n")
   
@@ -124,7 +132,7 @@ forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed
   
   write(ht, tp)
   
-
+  
   if(html.return==F & url.return==F){
     if(viewer==T){
       rstudioapi::viewer(tp)
