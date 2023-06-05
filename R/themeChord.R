@@ -48,7 +48,7 @@ themeChord <- function(corpus, dic, level=1, remove.self=TRUE, font.size=12, nod
   dm <- aggregate(list(value=dm$value), by=list(term1=dm$term1, term2=dm$term2), sum, na.rm=T)
   
   
-  dm <- aggregate(.data$value~.data$term1 + .data$term2, transform(dm, term1 = pmin(.data$term1, .data$term2),term2 = pmax(.data$term1, .data$term2)), sum, na.rm = TRUE)
+  dm <- aggregate(dm$value~dm$term1 + dm$term2, transform(dm, term1 = pmin(dm$term1, dm$term2),term2 = pmax(dm$term1, dm$term2)), sum, na.rm = TRUE)
   
   dm <- dm[order(dm$term1, dm$term2),]
   
