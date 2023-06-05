@@ -5,6 +5,8 @@
 #' @export
 forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed=FALSE, palette="Spectral", col.n=9, show.link=TRUE, url.return=FALSE, html.return=FALSE, viewer=TRUE, height=800, max.radius=5, div.name="chartdiv"){
   
+  max.radius <- as.character(max.radius)
+  
   co <- selColors(palette = palette, col.n = col.n)
   
   co <- paste0('am4core.color("', co,'")',collapse = ",\n")
@@ -46,7 +48,7 @@ forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   }
   
-  #', div.name ,' {
+  #',div.name,' {
     width: 100%;
     max-width: 100%;
     height:',height,'px;
@@ -59,7 +61,7 @@ forceDirectedTree <- function(json_data, desc="units", attraction= -5, collapsed
   <script src="https://www.amcharts.com/lib/4/charts.js"></script>
   <script src="https://www.amcharts.com/lib/4/plugins/forceDirected.js"></script>
   <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-  <div id="', div.name, '"></div>
+  <div id="',div.name,'"></div>
   
     <!-- TODO: Missing CoffeeScript 2 -->
   
