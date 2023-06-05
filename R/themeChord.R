@@ -50,6 +50,8 @@ themeChord <- function(corpus, dic, level=1, remove.self=TRUE, font.size=12, nod
   
   dm <- aggregate(dm$value~dm$term1 + dm$term2, transform(dm, term1 = pmin(dm$term1, dm$term2),term2 = pmax(dm$term1, dm$term2)), sum, na.rm = TRUE)
   
+  names(dm) <- c("term1","term2","value")
+  
   dm <- dm[order(dm$term1, dm$term2),]
   
   if(remove.self==TRUE){
