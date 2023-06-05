@@ -15,7 +15,9 @@ forceDirectedTree(json_data,
                   url.return=FALSE, 
                   html.return=FALSE, 
                   viewer=TRUE, 
-                  height=800)
+                  height=800,
+                  max.radius=5,
+                  div.name="chartdiv")
 }
 
 \arguments{
@@ -40,6 +42,11 @@ forceDirectedTree(json_data,
 \item{viewer}{Logical. Indicates if the function should use RStudio viewer panel or the default browser to display the results. The default is TRUE.}
 
 \item{height}{The height of the html panel in pixels. The default is 800.}
+
+\item{max.radius}{The maximum radius of the nodes in percentage. The default is 5.}
+
+\item{div.name}{Name of the div element employed to contain the graph. It is useful when you use the same type of graph multiple times in the same markdown page, for instance. The default is "chartdiv".}
+
 }
 \details{
 The function generates a Force Directed Tree Graph. It allows users to explore hierarchical data up to three levels.}
