@@ -1,14 +1,14 @@
-\name{themeChord}
-\alias{themeChord}
+\name{plotChord}
+\alias{plotChord}
 \title{Co-ocurrence Chord Diagram for Dictionary Codes and Themes}
 \description{
 Generates Chord Diagram for the Co-Ocurrence of Dictionary Themes in a Corpus. 
 }
 \usage{
-themeChord(corpus, 
-           dic, 
-           level=1, 
-           remove.self=TRUE, 
+plotChord(data, 
+           from="from", 
+           to="to", 
+           value="value", 
            font.size=12, 
            node.width=5, 
            opacity=0.05, 
@@ -21,13 +21,13 @@ themeChord(corpus,
 }
 
 \arguments{
-\item{corpus}{A quanteda corpus object.}
+\item{data}{A data.frame with three columns: origin, destination, and value.}
 
-\item{dic}{Quanteda dictionary employed in the analysis.}
+\item{from}{The name of the variable containing the information about the group, origin or aggregate measure. The default is "from".}
 
-\item{level}{The level of the dictionary to take into account of the aggregation of co-ocurrences. The default is 1 (top level of abstraction).}
+\item{to}{The name of the variable containing the information about the detail category, destination or attribute. The default is "to".}
 
-\item{remove.self}{Logical. Indicates if the function should remove co-ocurrences of a theme with itself. The default is TRUE.}
+\item{value}{The name of the variable containing the frequency or the value of the relationship between a given origin and destination or group and attribute. The default is "value".}
 
 \item{font.size}{The size of the font in pixels. The default is 12.}
 
@@ -48,7 +48,7 @@ themeChord(corpus,
 \item{url.return}{Logical. Indicates if the function should return the url address of the html file. The default is FALSE.}
 }
 \details{
-The function generates a Force Directed Hierarchical Cluster Tree Network Graph for quanteda corpuses. It calculates the similarity among texts and organizes them according to a tree structure. The interactive traits of the chart allow users to explore these relationships with more depth.}
+The function generates an interactive Chord Diagram. It allows users to perform thematic analysis and other categorical hierarchical data analysis intuitively.}
 \value{
 A chart representing the similarity of texts or the html source code generated.
 }
@@ -60,13 +60,11 @@ cp <- quanteda::corpus(spa.inaugural)
 # Loads the dictionary for Spanish Speeches
 dic <- dic.pol.es
 
+# Generate the data to be employed
+d <- matchCodes(cp, dic)
+
 # Create the graph for the inaugural discourses
-themeChord(cp,dic)
+plotChord(d, from="term1", to="term2", value="value")
 
-# Reshapes to sentences and use only the second level
-# of the dictionary
-cs <- corpus_reshape(cp, "sentences")
-
-themeChord(cp,dic, level=2)
 }
 }
