@@ -61,23 +61,23 @@ themeChord <- function(corpus, dic, level=1, remove.self=TRUE, font.size=12, nod
   data <- paste0('{ "from": "', dm$term1, '", "to": "', dm$term2,'", "value":', dm$value, '}', collapse = ",\n")
   
   
-  partA <- paste0('<!DOCTYPE html>
+  partA <- paste0("<!DOCTYPE html>
     <html>
     <head>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta http-equiv='content-type' content='text/html; charset=UTF-8'>
       <title>Force Directed Dendrogram</title>
-      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-      <meta name="robots" content="noindex, nofollow">
-      <meta name="googlebot" content="noindex, nofollow">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta http-equiv='content-type' content='text/html; charset=UTF-8'>
+      <meta name='robots' content='noindex, nofollow'>
+      <meta name='googlebot' content='noindex, nofollow'>
+      <meta name='viewport' content='width=device-width, initial-scale=1'>
     
   
-  <style id="compiled-css" type="text/css">
+  <style id='compiled-css' type='text/css'>
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   }
   
-  #', div.name, ' {
+  #", div.name, ' {
     width: 100%;
     height: ',height, 'px;
   }
