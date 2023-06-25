@@ -119,3 +119,33 @@
 #' @source Own elaboration.
 #' @examples dic.pol.es
 "dic.pol.es"
+
+
+#' Legislative Interventions on the 14th Legislature of the Spanish Congress (2019-2023)
+#' 
+#' This dataset contains all interventions by lower-chamber representatives in the Spanish Congress (Congreso de los diputados) during the 14th legislature (2019-2023). Each observation corresponds to an intervention.
+#' 
+#' @format a data.frame object with the following variables:
+#' * `leg.number` integer; The number of the legislature.
+#' * `session.date` date; Date when the session was carried out.
+#' * `session.type` character; The type of session: "Plenaria" (floor) or "Diputación Permanente".
+#' * `session.number` integer; A sequential number assigned to identify the session.
+#' * `issue.type` character; The type of issues being discussed during proceedings (voting, debate, questioning and control).
+#' * `issue.details` character; Details about the issues or the questions addressed in the intervention of the representative.
+#' * `speech.order` integer; The number indicating the sequence of intervention in each session.
+#' * `speech.text` character; The complete text of the intervention.
+#' * `rep.name` character; The full name of the representative doing the intervention.
+#' * `rep.district` character; The electoral district of the representative.
+#' * `rep.party` character; The electoral party of the representative.
+#' * `rep.group` character; The parliamentary group of the representative.
+#' * `rep.condition` character; The "place of speech" of the representative (as a representative, a candidate, a state minister, as the president, as a member of the parliament board).
+#' * `rep.institution` character; The institution the representative belongs (the lower chamber, a particular ministry, the presidential office).
+#' * `speech.tokens` integer; The number of tokens of the speech.
+#' @examples
+#' # some operations on the corpus
+#' summary(spa.sessions)
+#' @keywords data.frame, Spanish Congress
+#' @source Own elaboration based on the legislative diaries provided by the Congreso de los Diputados (www.congreso.es).
+#' @examples spa.sessions
+"spa.sessions"
+
