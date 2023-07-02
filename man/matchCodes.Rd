@@ -8,7 +8,8 @@ Calculates the cooccurrence of dictionary terms in a given corpus.
 matchCodes(corpus, 
               dic,
               level=1,
-              remove.self=TRUE)
+              remove.self=TRUE,
+              quietly=FALSE)
 }
 
 \arguments{
@@ -19,6 +20,8 @@ matchCodes(corpus,
 \item{level}{The level of the dictionary to take into account of the aggregation of co-ocurrences. The default is 1 (top level of abstraction).}
 
 \item{remove.self}{Logical. Indicates if the function should remove co-ocurrences of a theme with itself. The default is TRUE.}
+
+\item{quietly}{Logical. Indicates if the function hides the progress bar or not. The default is FALSE.}
 
 }
 \details{

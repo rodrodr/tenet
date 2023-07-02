@@ -10,7 +10,7 @@
 #' @importFrom utils setTxtProgressBar
 #' @importFrom utils txtProgressBar
 #' @export
-matchCodes <- function(corpus, dic, level=1, remove.self=TRUE){
+matchCodes <- function(corpus, dic, level=1, remove.self=TRUE, quietly=FALSE){
   
   fc <- quanteda::fcm(quanteda::tokens(corpus))
   ff <- quanteda::fcm_select(fc, pattern = unlist(dic), valuetype = "regex")
@@ -31,8 +31,9 @@ matchCodes <- function(corpus, dic, level=1, remove.self=TRUE){
     nma <- nm  
   }
   
-  pb <- utils::txtProgressBar(min = 0, max=length(nm), style=3, char="=", width = 50)
-  
+  if(quietly==FALSE){
+    pb <- utils::txtProgressBar(min = 0, max=length(nm), style=3, char="=", width = 50)
+  }
   
   for(i in 1:length(nm)){
     
@@ -47,8 +48,9 @@ matchCodes <- function(corpus, dic, level=1, remove.self=TRUE){
       
     }  
     
-    utils::setTxtProgressBar(pb, value = i)
-    
+    if(quietly==FALSE){
+      utils::setTxtProgressBar(pb, value = i)
+    }
   }
   
   dm <- aggregate(list(value=dm$value), by=list(term1=dm$term1, term2=dm$term2), sum, na.rm=T)
