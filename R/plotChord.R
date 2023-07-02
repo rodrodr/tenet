@@ -1,121 +1,64 @@
-#
-#
-# This is the function plotChord.
-#
-#' @import reshape2
-#' @import quanteda
-#' @import stringi
+#' plotChord
+#'
+#' Creates an amCharts Chord Diagram
+#'
+#' @import htmlwidgets
+#' @import jsonlite
+#' 
 #' @export
-plotChord <- function(data, from="from", to="to", value="value", font.size=12, node.width=5, opacity=0.05, div.name="chordtheme", height=600, radius.percent=70, viewer=TRUE, html.return=FALSE, url.return=FALSE){
-  
-  
-  data <- paste0('{ from: "', data[,from], '", to: "',data[,to],'", value: ', data[,value], '}', collapse = ',\n')
-  
-  
-  partA <- paste0("<!DOCTYPE html>
-    <html>
-    <head>
-      <meta http-equiv='content-type' content='text/html; charset=UTF-8'>
-      <title>Force Directed Dendrogram</title>
-      <meta http-equiv='content-type' content='text/html; charset=UTF-8'>
-      <meta name='robots' content='noindex, nofollow'>
-      <meta name='googlebot' content='noindex, nofollow'>
-      <meta name='viewport' content='width=device-width, initial-scale=1'>
-    
-  
-  <style id='compiled-css' type='text/css'>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  }
-  
-  #", div.name, ' {
-    width: 100%;
-    height: ',height, 'px;
-  }
-  </style>
-  
-      </head>
-    <body>
-        <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-        <script src="https://cdn.amcharts.com/lib/5/flow.js"></script>
-        <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-        <div id="', div.name, '"></div>
-  
-      <script type="text/javascript">
-  
-  var root = am5.Root.new("', div.name, '");
+plotChord <- function(data, from="from", to="to", value="value", font.size=12, node.width=5, opacity=0.05, radius.percent=70, height = 600, elementId = "chordtheme") {
 
+  data <- data[,c(from, to, value)]
+  names(data) <- c("from","to","value")
 
-// Set themes
-// https://www.amcharts.com/docs/v5/concepts/themes/
-root.setThemes([
-  am5themes_Animated.new(root)
-]);
+  data <- jsonlite::toJSON(data)
 
-// Create series
-// https://www.amcharts.com/docs/v5/charts/flow-charts/
-var series = root.container.children.push(am5flow.ChordDirected.new(root, {
-  startAngle: 80,
-  padAngle: 2,
-  linkHeadRadius: undefined,
-  sourceIdField: "from",
-  targetIdField: "to",
-  valueField: "value",
-  nodeWidth: ',node.width,',
-  radius: am5.percent(',radius.percent,')
-}));
+  # forward options using x
+  x = list(
+    data = data,
+    font_size = font.size,
+    node_width = node.width,
+    opacity = opacity,
+    radius_percent = radius.percent
+  )
 
-series.nodes.labels.template.setAll({
-  textType: "radial",
-  centerX: 0,
-  fontSize: ',font.size,'
-});
-
-
-series.links.template.set("fillStyle", "source");
-
-var linkTemplate = series.links.template;
-linkTemplate.setAll({
-	strokeOpacity: 0,
-  fillOpacity: ',opacity,'
-});
-
-var hoverState = linkTemplate.states.create("hover", {
-	fillOpacity: 1,
-  strokeOpacity: 0});
-
-
-// Set data
-// https://www.amcharts.com/docs/v5/charts/flow-charts/#Setting_data
-series.data.setAll([')
-  
-  
-  partB <- paste0(']);
-
-
-// Make stuff animate on load
-series.appear(1000, 100);
-</script>
-  
-  </body>
-  </html>')
-  
-  ht <- paste(partA, data, partB, collapse = "\n")
-  
-  tp <- tempfile(pattern = "temp", fileext = ".html")
-  
-  write(ht, tp)
-  
-  if(html.return==F & url.return==F){
-    if(viewer==T){
-      rstudioapi::viewer(tp)
-    }else{
-      browseURL(tp)
-    }
-  }else if(html.return==F & url.return==T){
-    return(tp)
-  }else{
-    return(ht)
-  }
-  
+  # create widget
+  htmlwidgets::createWidget(
+    name = 'plotChord',
+    x,
+    width = "100%",
+    height = height,
+    package = 'tenet',
+    elementId = elementId
+  )
 }
+
+#' Shiny bindings for mywidget
+#'
+#' Output and render functions for using mywidget within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#' @param expr An expression that generates a mywidget
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
+#' @name plotChord-shiny
+#'
+#' @export
+plotChordOutput <- function(outputId, width = '100%', height = '400px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'plotChord', width, height, package = 'amChartsWidget')
+}
+
+#' @rdname plotChord-shiny
+#' @export
+renderplotChord <- function(expr, env = parent.frame(), quoted = FALSE) {
+  if (!quoted) { expr <- substitute(expr) } # force quoted
+  htmlwidgets::shinyRenderWidget(expr, mywidgetOutput, env, quoted = TRUE)
+}
+
+
