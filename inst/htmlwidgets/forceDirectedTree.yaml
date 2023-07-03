@@ -1,0 +1,10 @@
+dependencies:
+ - name: amCharts
+   version: 5.3.17
+   src: htmlwidgets/lib/amCharts
+   script:
+        - index.js
+        - hierarchy.js
+        - Animated.js
+   stylesheet:
+        - amCharts.css
