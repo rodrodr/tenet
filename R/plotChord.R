@@ -51,7 +51,7 @@ plotChord <- function(data, from="from", to="to", value="value", font.size=12, n
 #'
 #' @export
 plotChordOutput <- function(outputId, width = '100%', height = '400px'){
-  htmlwidgets::shinyWidgetOutput(outputId, 'plotChord', width, height, package = 'amChartsWidget')
+  htmlwidgets::shinyWidgetOutput(outputId, 'plotChord', width, height, package = 'tenet')
 }
 
 #' @rdname plotChord-shiny

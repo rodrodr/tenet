@@ -22,7 +22,6 @@ matchCodes(corpus,
 \item{remove.self}{Logical. Indicates if the function should remove co-ocurrences of a theme with itself. The default is TRUE.}
 
 \item{quietly}{Logical. Indicates if the function hides the progress bar or not. The default is FALSE.}
-
 }
 \details{
 The function matchCodes calculates the number of times each pair of dictionary terms co-occur in a corpus.  
