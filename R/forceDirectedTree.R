@@ -1,12 +1,11 @@
-#' plotSankey
+#' forceDirectedTree
 #'
 #' Creates an amCharts Sankey Diagram
 #'
 #' @import htmlwidgets
-#' @import jsonlite
 #' 
 #' @export
-forceDirectedTree <- function(json_data, attraction= -5, palette="Spectral", col.n=9, show.link=TRUE, height=800, max.radius=5, elementId="chartdiv"){
+forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.n=9, show.link=TRUE, height=800, max.radius=5, elementId="chartdiv"){
   
   max.radius <- as.character(max.radius)
   
@@ -19,6 +18,8 @@ forceDirectedTree <- function(json_data, attraction= -5, palette="Spectral", col
   data <- paste0("{
     value: 0,
     children: [",json_data, "]}")
+  
+  data <- htmlwidgets::JS(data)
   
   opacity <- 1
   

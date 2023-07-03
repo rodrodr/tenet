@@ -32,9 +32,9 @@ HTMLWidgets.widget({
         
         var series = container.children.push(am5hierarchy.ForceDirected.new(root, {
           singleBranchOnly: false,
-          downDepth: 3,
+          downDepth: 2,
           topDepth: 1,
-          initialDepth: 3,
+          initialDepth: 4,
           valueField: "value",
           categoryField: "name",
           childDataField: "children",
