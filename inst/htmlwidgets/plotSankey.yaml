@@ -4,6 +4,7 @@ dependencies:
    src: htmlwidgets/lib/amCharts
    script:
         - index.js
+        - hierarchy.js
         - flow.js
         - Animated.js
    stylesheet:

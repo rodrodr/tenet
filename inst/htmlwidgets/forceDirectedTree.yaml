@@ -5,6 +5,7 @@ dependencies:
    script:
         - index.js
         - hierarchy.js
+        - flow.js
         - Animated.js
    stylesheet:
         - amCharts.css
