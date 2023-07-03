@@ -10,12 +10,9 @@ forceDirectedTree(json_data,
                   palette="Spectral", 
                   col.n=9, 
                   show.link=TRUE, 
-                  url.return=FALSE, 
-                  html.return=FALSE, 
-                  viewer=TRUE, 
                   height=800,
                   max.radius=5,
-                  div.name="chartdiv")
+                  elementId="chartdiv")
 }
 
 \arguments{
