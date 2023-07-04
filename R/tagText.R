@@ -18,7 +18,10 @@ tagText <- function(text,
                     viewer=TRUE, 
                     url.return=FALSE, 
                     margin=50, 
-                    font.size=12){
+                    font.size=12,
+                    markdown=FALSE,
+                    height=400,
+                    elementId="tagtextdiv"){
   
   if (class(keywords)[1]=="dictionary2"){
     dic <- keywords
@@ -39,6 +42,18 @@ tagText <- function(text,
   
   txt <- gsub(pattern = "\n"," <br>", txt, 
               ignore.case = T)
+  
+  
+  if(markdown==TRUE){
+    div <- paste0("<div id='", elementId, "' style='overflow-y: scroll; height:",height,"px;'>")
+    
+    dive <- "</div>"
+  }else{
+    div <- ""
+    dive <- ""
+  }
+  
+  
   
   kz <- vector()
   
@@ -140,9 +155,10 @@ tagText <- function(text,
     ht <- paste0("<!DOCTYPE html>
   <html>
     <head></head>
-    <body style='margin: ", margin," ", margin,"; font-size: ",font.size,"px'><h1>", title,"</h1><br><br>",
-  paste0(txt,collapse=" <br>"),"
-    </body></html>")
+    <body style='margin: ", margin," ", margin,"; font-size: ",font.size,"px'>", div,"<h1>", title,"</h1><br><br>",
+  paste0(txt,collapse=" <br>"),
+  dive,
+  "</body></html>")
   }else{
     
     ht <- paste0("<style>body {margin: ", margin," ", margin,";font-size: ", font.size, "px;}.tooltip {
@@ -176,7 +192,7 @@ tagText <- function(text,
 }.tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
-}</style><body><h1>", title,"</h1><br><br>",paste0(txt, collapse="<br>"),"</body></html>")
+}</style><body>",div,"<h1>", title,"</h1><br><br>",paste0(txt, collapse="<br>"),dive,"</body></html>")
   }
   
   tp <- tempfile(fileext = ".html")
