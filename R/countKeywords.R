@@ -11,7 +11,7 @@
 #' @importFrom utils setTxtProgressBar
 #' @importFrom utils txtProgressBar
 #' @export
-countKeywords <- function(corpus, dic, group.var=NULL, rel.freq=FALSE, case_insensitive=TRUE){
+countKeywords <- function(corpus, dic, group.var=NULL, rel.freq=FALSE, case_insensitive=TRUE, quietly=FALSE){
   
   if(! is.null(group.var)){
     corpus <- quanteda::corpus_group(corpus, 
@@ -47,7 +47,9 @@ countKeywords <- function(corpus, dic, group.var=NULL, rel.freq=FALSE, case_inse
   names(xx) <- nm
   
   if(quietly==FALSE){
+    
     pb <- utils::txtProgressBar(min = 0, max=nrow(xx), style=3, char="=", width = 50)
+    
   }
     
   res <- data.frame()
