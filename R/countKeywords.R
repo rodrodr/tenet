@@ -46,8 +46,10 @@ countKeywords <- function(corpus, dic, group.var=NULL, rel.freq=FALSE, case_inse
   xx$variable <-NULL
   names(xx) <- nm
   
-  pb <- utils::txtProgressBar(min = 0, max=nrow(xx), style=3, char="=", width = 50)
-  
+  if(quietly==FALSE){
+    pb <- utils::txtProgressBar(min = 0, max=nrow(xx), style=3, char="=", width = 50)
+  }
+    
   res <- data.frame()
   
   for(i in 1:nrow(xx)){
@@ -68,7 +70,9 @@ countKeywords <- function(corpus, dic, group.var=NULL, rel.freq=FALSE, case_inse
                      frequency=sum(tf)/sum(tot)))
     }
     
-    utils::setTxtProgressBar(pb, value = i)
+    if(quietly==FALSE){
+      utils::setTxtProgressBar(pb, value = i)
+    }
     
   }
   

@@ -9,7 +9,8 @@ countKeywords(corpus,
               dic, 
               group.var=NULL, 
               rel.freq=FALSE, 
-              case_insensitive=TRUE)
+              case_insensitive=TRUE,
+              quietly=FALSE)
 }
 
 \arguments{
@@ -18,6 +19,7 @@ countKeywords(corpus,
 \item{group.var}{The variable in the corpus metadata to decompose the results. The default is NULL (all groups will be considered without desaggregation).}
 \item{rel.freq}{Establishes whether the function calculates the relative frequency. The default is FALSE.}
 \item{case_insensitive}{Indicates if the search will be insensitive to lower and uppercase letters. The default is TRUE.}
+\item{quietly}{Logical. Indicates if the function hides the progress bar or not. The default is FALSE.}
 }
 \details{
 The function countKeywords calculates number of times each term in a dictionary appears in a corpus. It allows both absolute and relative frequencies. Grouping variables contained in corpus metadata can also be employed to disaggregate the result by categories.  
