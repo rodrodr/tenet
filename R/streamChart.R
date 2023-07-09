@@ -17,16 +17,20 @@ streamChart <- function(data,
                         height=580,
                         div.name="chartdivstream"){
   
-  nma <- unique(data[,group])
+  data <- data[,c(x,y,group)]
   
   data <- reshape2::dcast(data,data[,x]~data[,group], value.var = y)
   
   data[is.na(data)] <- 0
   
+  nma <- names(data)[2:ncol(data)]
   nm <- names(data)[2:ncol(data)]
+  
   nm <- c("category",paste0("var",1:length(nm)))
   names(data) <-nm
+  
   nma <- c("category", nma)
+  
   ser <- paste0("createSeries('",
                 nm[2:length(nm)], "', '", 
                 nma[2:length(nma)],"');", collapse = "\n")

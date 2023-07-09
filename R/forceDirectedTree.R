@@ -76,7 +76,7 @@ forceDirectedTreeOutput <- function(outputId, width = '100%', height = '800px'){
 #' @export
 renderforceDirectedTree <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, mywidgetOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, forceDirectedTreeOutput, env, quoted = TRUE)
 }
 
 

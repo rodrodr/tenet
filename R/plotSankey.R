@@ -61,7 +61,7 @@ plotSankeyOutput <- function(outputId, width = '100%', height = '600px'){
 #' @export
 renderplotSankey <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, mywidgetOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, plotSankeyOutput, env, quoted = TRUE)
 }
 
 

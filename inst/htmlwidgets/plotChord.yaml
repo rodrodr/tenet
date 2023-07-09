@@ -7,5 +7,6 @@ dependencies:
         - hierarchy.js
         - flow.js
         - Animated.js
+        - xy.js
    stylesheet:
         - amCharts.css

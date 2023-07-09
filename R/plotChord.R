@@ -58,7 +58,7 @@ plotChordOutput <- function(outputId, width = '100%', height = '400px'){
 #' @export
 renderplotChord <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
-  htmlwidgets::shinyRenderWidget(expr, mywidgetOutput, env, quoted = TRUE)
+  htmlwidgets::shinyRenderWidget(expr, plotChordOutput, env, quoted = TRUE)
 }
 
 
