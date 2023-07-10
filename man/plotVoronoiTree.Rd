@@ -51,6 +51,8 @@ Creates an amCharts Voronoi Tree Diagram for visualiazing hierarchical data.
 
 \item{cornerCount}{The number of corners or sides when the type is polygon. A triangle would be cornerCount=3, a square: cornerCount=4, a pentagon: cornerCount=5, a hexagon: cornerCount=6, and so on. The default 120 (for a circle).}
 
+\item{initialDepth}{Defines the depth of information displayed when the chart is rendered. A initialDepth=1 shows only the top category and the second-level details is informed only when clicked. A initialDepth=2 shows both the first and the second-level categories at once. The first choice makes the graph easier to read, while the second provides a nice visual when second-level categores are not many. The default 2.}
+
 \item{elementId}{Name of the div element employed to contain the graph. It is useful when you use the same type of graph multiple times in the same markdown page, for instance. The default is "voronoitreediv".}
 }
 \details{

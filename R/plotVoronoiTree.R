@@ -4,7 +4,7 @@
 #' @import htmlwidgets
 #' 
 #' @export
-plotVoronoiTree <- function(data, groups="groups", elements="elements", value="value", height=500, font.size=11, font.size.parent=25, hide.parent.label= FALSE, strokeWidth=2, strokeWidthParent=5, strokeColor="#000", type="polygon", cornerCount=120, elementId="voronoitreediv"){
+plotVoronoiTree <- function(data, groups="groups", elements="elements", value="value", height=500, font.size=11, font.size.parent=25, hide.parent.label= FALSE, strokeWidth=2, strokeWidthParent=5, strokeColor="#000", type="polygon", cornerCount=120, initialDepth=2, elementId="voronoitreediv"){
   
   data <- data[,c(groups,elements, value)]
   names(data) <- c("groups","elements","value")
@@ -46,7 +46,8 @@ plotVoronoiTree <- function(data, groups="groups", elements="elements", value="v
     hide_parent=hide.parent.label,
     strokeColor = strokeColor,
     type = type,
-    cornerCount = cornerCount
+    cornerCount = cornerCount,
+    initialDepth = initialDepth
   )
   
   # create widget
