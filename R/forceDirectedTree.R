@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #' 
 #' @export
-forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.n=9, show.link=TRUE, height=800, max.radius=5, elementId="chartdiv"){
+forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.n=9, show.link=TRUE, height=800, max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
   
   max.radius <- as.character(max.radius)
   
@@ -35,7 +35,8 @@ forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.
     colors = colors,
     opacity = opacity,
     attraction = attraction,
-    max_radius = max.radius
+    max_radius = max.radius,
+    tooltipText = tooltip.text
   )
   
   # create widget

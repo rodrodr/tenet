@@ -12,11 +12,12 @@ forceDirectedTree(json_data,
                   show.link=TRUE, 
                   height=800,
                   max.radius=5,
-                  elementId="chartdiv")
+                  elementId="chartdiv",
+                  tooltip.text="{name}: {value}")
 }
 
 \arguments{
-\item{json_data}{A json string character as the one produced by the function jsonTree.}
+\item{json_data}{An hierarchical json string as the one produced by the function jsonTree.}
 
 \item{attraction}{The intensity of attraction among nodes. The default is -5.}
 
@@ -32,6 +33,7 @@ forceDirectedTree(json_data,
 
 \item{elementId}{Name of the div element employed to contain the graph. It is useful when you use the same type of graph multiple times in the same markdown page, for instance. The default is "chartdiv".}
 
+\item{tooltip.text}{This option allows users to customize the text or html code that will be displayed on the tooltip of the chart. The default is "{name}: {value}".}
 }
 \details{
 The function generates a Force Directed Tree Graph. It allows users to explore hierarchical data up to three levels.}
