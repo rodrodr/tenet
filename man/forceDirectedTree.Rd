@@ -11,6 +11,7 @@ forceDirectedTree(json_data,
                   col.n=9, 
                   show.link=TRUE, 
                   height=800,
+                  width="100\%",
                   max.radius=5,
                   elementId="chartdiv",
                   tooltip.text="{name}: {value}")
@@ -28,6 +29,8 @@ forceDirectedTree(json_data,
 \item{show.link}{Logical. Indicates that links connecting nodes will be made visible. The default is TRUE.}
 
 \item{height}{The height of the html panel in pixels. The default is 800.}
+
+\item{width}{The width of the html panel in pixels or percent. The default is 100\%.}
 
 \item{max.radius}{The maximum radius of the nodes in percentage. The default is 5.}
 

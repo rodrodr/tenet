@@ -5,7 +5,7 @@
 #' @import htmlwidgets
 #' 
 #' @export
-forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.n=9, show.link=TRUE, height=800, max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
+forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.n=9, show.link=TRUE, height=800, width="100%", max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
   
   max.radius <- as.character(max.radius)
   
@@ -43,7 +43,7 @@ forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.
   htmlwidgets::createWidget(
     name = 'forceDirectedTree',
     x,
-    width = "100%",
+    width = width,
     height = height,
     package = 'tenet',
     elementId = elementId
