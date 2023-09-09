@@ -69,12 +69,12 @@ fixParagraph <- function(text, check.doubleline=FALSE){
   
   tt <- stringi::stri_replace_all_regex(
     tt,
-    pattern = "(\\-|\\;|\\||\\?|\\-|\\―|\\—|%)(\\s{1})([a-zA-Z\\p{Latin}]{1})",
+    pattern = "(\\-|\\;|\\||\\-|\\―|\\—|%)(\\s{1})([a-zA-Z\\p{Latin}]{1})",
     replacement = "$3")
   
   tt <- stringi::stri_replace_all_regex(
     tt,
-    pattern = "(\\-|\\;|\\||\\?|\\-|\\―|\\—|%)(\\s{1})([a-zA-Z|\\p{Latin}]{1,})",
+    pattern = "(\\-|\\;|\\||\\-|\\―|\\—|%)(\\s{1})([a-zA-Z|\\p{Latin}]{1,})",
     replacement = "$3")
   
   return(tt)

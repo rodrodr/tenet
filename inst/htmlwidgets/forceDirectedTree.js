@@ -56,7 +56,7 @@ HTMLWidgets.widget({
         
         series.set("selectedDataItem", series.dataItems[0]);
 
-        series.nodes.template.set("tooltipHTML", x.tooltipText);
+       // series.nodes.template.set("tooltipHTML", x.tooltipText);
 
 
         // Make stuff animate on load
