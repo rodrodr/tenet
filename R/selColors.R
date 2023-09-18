@@ -4,18 +4,28 @@
 # colors for charts.
 #
 #' @export
-selColors <- function(palette="Dark2", 
-                      col.n=9, 
-                      custom.pal=NULL){
-  
-  if (! is.null(custom.pal)){
-    col <- colorRampPalette(custom.pal)
+
+selColors <- function(palette=c("#1B9E77",
+                                "#D95F02",
+                                "#7570B3",
+                                "#E7298A",
+                                "#66A61E",
+                                "#E6AB02",
+                                "#A6761D",
+                                "#666666"), 
+                      col.n=9){
+
+  if(col.n==length(palette)){
+    co <- palette
+  }else if(col.n<length(palette)){  
+    N <- length(palette)
+      ideal <- seq(1,N,(N-1)/(col.n-1))
+      co <- palette[round(ideal)] 
+        
   }else{
-      col <- returnPalette(palette)
-      col <- colorRampPalette(col)
+    col <- colorRampPalette(colors = palette)
+    co <- col(col.n)
   }
-  
-  co <- col(col.n)
-  
+
   return(co) 
 }

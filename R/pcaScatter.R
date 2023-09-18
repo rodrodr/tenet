@@ -22,8 +22,7 @@ pcaScatter <- function(corpus,
                        title = "Title",
                        caption = "Source: Own elaboration.",
                        alpha = 0.5,
-                       palette = "EdwardHopper",
-                       custom.pal = NULL){
+                       palette = NULL){
   
   tb <- quanteda::tokens(corpus, 
                          remove_punct = T, 
@@ -69,7 +68,11 @@ pcaScatter <- function(corpus,
   
   ind$tool <- paste0(ind$word, "<br>Freq.: ", ind$freq)
   
-  col <- selColors(palette=palette, col.n = n.clusters, custom.pal = custom.pal)
+  if(! is.null(palette)){
+    col <- selColors(palette=palette, col.n = n.clusters)
+  }else{
+    col <- selColors(col.n = n.clusters)
+  }
   
   
   p <- ggplot2::ggplot(ind, 

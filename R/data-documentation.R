@@ -149,3 +149,7 @@
 #' @examples spa.sessions
 "spa.sessions"
 
+#' Data Visualization Color Palettes
+#' 
+#' This list contains 222 color palettes classified by type of data. Each name repreents the type: cat - categorical, div - divergent, or seq - sequential; the source R package, the name of the palette and the number of hues or colors in the original palette.
+"pal"

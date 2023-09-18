@@ -7,7 +7,7 @@ Creates a Force Directed Tree Chart for visualizing hierarchical data.
 \usage{
 forceDirectedTree(json_data, 
                   attraction=-5, 
-                  palette="Spectral", 
+                  palette=NULL, 
                   col.n=9, 
                   show.link=TRUE, 
                   height=800,
@@ -22,7 +22,7 @@ forceDirectedTree(json_data,
 
 \item{attraction}{The intensity of attraction among nodes. The default is -5.}
 
-\item{palette}{A color palette contained in either RColorBrewer or wesanderson packages. The default is "Spectral".}
+\item{palette}{A color palette to be used to represent nodes. The default is NULL (the default would be "Dark2" from RColorBrewer).}
 
 \item{col.n}{The number of colors to represent. The default is 9.}
 

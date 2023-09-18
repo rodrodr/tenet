@@ -5,11 +5,15 @@
 #' @import htmlwidgets
 #' 
 #' @export
-forceDirectedTree <- function(json_data, attraction=-5, palette="Spectral", col.n=9, show.link=TRUE, height=800, width="100%", max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
+forceDirectedTree <- function(json_data, attraction=-5, palette=NULL,col.n=9, show.link=TRUE, height=800, width="100%", max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
   
   max.radius <- as.character(max.radius)
   
-  co <- selColors(palette = palette, col.n = col.n)
+  if(!is.null(palette)){
+    co <- selColors(palette = palette, col.n = col.n)
+  }else{
+    co <- selColors(col.n = col.n)
+  }
   
   co <- paste0('am5.color("', co,'")',collapse = ",\n")
   

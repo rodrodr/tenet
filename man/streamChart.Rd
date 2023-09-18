@@ -12,9 +12,7 @@ streamChart(data,
             url.return = FALSE,
             html.return = FALSE,
             viewer = TRUE,
-            custom.color = NULL,
-            palette = "FantasticFox1",
-            custom.pal = NULL,
+            palette = NULL,
             height=580,
             div.name="chartdivstream")
 }
@@ -34,11 +32,7 @@ streamChart(data,
 
 \item{viewer}{Logical. Indicates if the function should use RStudio viewer panel or the default browser to display the results. The default is TRUE.}
 
-\item{custom.color}{The color used for coloring nodes if all should be colored with only one color. The default is NULL.}
-
-\item{palette}{The color palette included in either RColorBrewer or wesanderson palettes. The default is "FantasticFox1".}
-
-\item{custom.pal}{The list of colors used for creating a customized color palette. The default is NULL.}
+\item{palette}{A color palette to be employed in the chart. The default is  NULL (Dark2 of RColorBrewer).}
 
 \item{height}{The height of the html panel in pixels. The default is 580.}
 

@@ -16,6 +16,7 @@ plotVoronoiTree(
                 strokeColor = "#000",
                 type = "polygon",
                 cornerCount = 120,
+                initialDepth=2,
                 elementId = "voronoitreediv"
               )
 }

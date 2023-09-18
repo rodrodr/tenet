@@ -6,20 +6,25 @@ Generates color scales with a large number of colors based on custom basic palet
 }
 \usage{
 
-selColors(palette="Dark2", 
-          col.n=9, 
-          custom.pal=NULL)
+selColors(palette=c("#1B9E77",
+                    "#D95F02",
+                    "#7570B3",
+                    "#E7298A",
+                    "#66A61E",
+                    "#E6AB02",
+                    "#A6761D",
+                    "#666666"), 
+          col.n=9)
 }
 
 \arguments{
-\item{palette}{A color palette included in selected packages. The default is "Dark2".}
+\item{palette}{The color palette included in the pal object. The default are the colors of the "Dark2" palette included in the RColorBrewer package.}
 
 \item{col.n}{Total number of colors to be generated. The default is 9.}
-
-\item{custom.pal}{A list of user defined colors to be used in the generated of the final color scale. The default is NULL.}
 }
+
 \details{
-Generates color scales with a large number of colors based on custom basic palettes or those contained in packages RColorBrewer and wesanderson.
+Generates color scales with a large number of colors based on custom basic palettes or those contained in other R packages.
 }
 \value{
 The function returns a list of n colors based on a previously defined palette.
@@ -32,13 +37,13 @@ The function returns a list of n colors based on a previously defined palette.
 selColors(col.n=20)
 
 # Generates a list of 20 different colors based 
-# on the "Zissou1" palette (wesanderson)
-selColors(palette="Zissou1", 20)
+# on the "ZissouContinuous" palette (wesanderson)
+selColors(palette=pal$cat.wesanderson.ZissouContinuous.11, 20)
 
 
 # Generates a list of 20 different colors based 
 # on a custom palette using red, yellow and blue
-selColors(col.n=20, custom.pal=c("red","yellow","blue") )
+selColors(palette=c("red","yellow","blue"), col.n=20)
 
 
 }

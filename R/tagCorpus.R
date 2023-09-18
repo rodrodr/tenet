@@ -14,7 +14,7 @@ tagCorpus <- function(corpus,
                       dic,
                       reshape.dic=TRUE,
                       reshape.to="paragraphs",
-                      palette = "EdwardHopper",
+                      palette = NULL,
                       bright = 130, 
                       pagination = TRUE, 
                       defaultPageSize=10,
@@ -32,7 +32,13 @@ tagCorpus <- function(corpus,
   text <- stringi::stri_trans_general(text, "Latin-ASCII")
   
   nm <- names(dic)
-  col <- selColors(palette=palette, col.n=length(nm))
+  
+  if(! is.null(palette)){
+    col <- selColors(palette=palette, col.n=length(nm))
+  }else{
+    col <- selColors(col.n=length(nm))
+  }
+  
   tcol <- colBright(col, limit = bright)
   
   dc <- data.frame()

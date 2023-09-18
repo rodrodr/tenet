@@ -19,8 +19,8 @@ plotLexDiv(corpus,
            subtitle="Keywords",
            legend.title="Group",
            legend.rows=1,
-           palette="Royal1",
-           custom.colors=NULL,
+           palette=NULL,
+           custom.color="black",
            panel.bg.fill="grey98",
            hline.color="white",
            hline.width=0.5,
@@ -58,7 +58,7 @@ plotLexDiv(corpus,
 
 \item{palette}{The color palette included in either RColorBrewer or wesanderson palettes. The default is "Royal1".}
 
-\item{custom.colors}{The list of custom colors for a personalized color palette. The default is NULL.}
+\item{custom.color}{The list of custom color to be used when no groups or dictionary entries are defined. The default is "black".}
 
 \item{panel.bg.fill}{The background color for the text panels. The default color is "grey98".}
 
@@ -97,8 +97,7 @@ dic <- dictionary(list(
 
 # Creates the graph                
 plotLexDiv(tx, 
-           keywords = dic, 
-           palette = "Dark2")
+           keywords = dic)
 
 # Aggregate the corpus according to party
 plotLexDiv(tx, 

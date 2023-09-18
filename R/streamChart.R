@@ -11,9 +11,7 @@ streamChart <- function(data,
                         url.return = FALSE,
                         html.return = FALSE,
                         viewer = TRUE,
-                        custom.color = NULL,
-                        palette = "FantasticFox1",
-                        custom.pal = NULL,
+                        palette = NULL,
                         height=580,
                         div.name="chartdivstream"){
   
@@ -53,8 +51,12 @@ streamChart <- function(data,
   
   vs <- paste0("{", vs,"}", collapse = ",\n")  
   
-  pal <- selColors(palette, length(nma)-1, custom.pal = custom.pal)
-  
+  if(! is.null(palette)){
+    pal <- selColors(palette, length(nma)-1)
+  }else{
+    pal <- selColors(length(nma)-1)
+  }
+
   amcolor <- paste0('am5.color("', pal, '")', collapse = ",\n")
   
   partA <- paste0("<!DOCTYPE html>

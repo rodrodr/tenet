@@ -11,9 +11,7 @@ forceClusTree(corpus,
               url.return = FALSE,
               html.return = FALSE,
               viewer = TRUE,
-              custom.color = NULL,
-              palette = "BottleRocket2",
-              custom.pal = NULL,
+              palette = NULL,
               groupvar = NULL,
               height=580,
               link.col="#734421",
@@ -40,11 +38,7 @@ forceClusTree(corpus,
 
 \item{viewer}{Logical. Indicates if the function should use RStudio viewer panel or the default browser to display the results. The default is TRUE.}
 
-\item{custom.color}{The color used for coloring nodes if all should be colored with only one color. The default is NULL.}
-
-\item{palette}{The color palette included in either RColorBrewer or wesanderson palettes. The default is "BottleRocket2".}
-
-\item{custom.pal}{The list of colors used for creating a customized color palette. The default is NULL.}
+\item{palette}{The color palette to be employed. The default is NULL (Dark2 of RColorBrewer).}
 
 \item{groupvar}{Metadata variable associated to the texts on a quanteda corpus object indicating groups or more aggregated categories.}
 

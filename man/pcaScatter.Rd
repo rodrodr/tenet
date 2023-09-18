@@ -15,8 +15,7 @@ pcaScatter(corpus,
            title = "Title",
            caption = "Source: Own elaboration.",
            alpha = 0.5,
-           palette = "EdwardHopper",
-           custom.pal = NULL)
+           palette = NULL)
 }
 
 \arguments{
@@ -29,8 +28,7 @@ pcaScatter(corpus,
 \item{title}{The title of the graph. The default is "Title".}
 \item{caption}{The caption of the graph. The default is "Source: Own elaboration.".}
 \item{alpha}{The opacity of the colors. The default is 0.5 (50 percent opaque).}
-\item{palette}{One of the palettes included in the listPalettes function of tenet. The default is "EdwardHopper".}
-\item{custom.pal}{The list of colors used for creating a customized color palette. The default is NULL.}
+\item{palette}{One of the palettes included in the listPalettes function of tenet. The default is NULL (Dark2 from RColorBrewer).}
 }
 \details{
 The function pcaScatter allows users to perform two dimension reduction analysis on text data: Principal Component Analysis and Correspondence Analysis. It also applies a hierarchical cluster algorithm to the results to separate terms into groups based on their similarity. 
@@ -46,13 +44,11 @@ cp <- corpus(spa.inaugural)
 # Generates a PCA using pcaScatter
 pcaScatter(cp, 
            title = "Disc. Inauguración (1979-2019)", 
-           palette="GeneDavis", 
            min.freq = 10)
            
 # Now, performs a Correspondence Analysis
 pcaScatter(cp, 
            type="ca",
            title = "Disc. Inauguración (1979-2019)", 
-           palette="GeneDavis", 
            min.freq = 10)
 }
