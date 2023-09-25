@@ -99,12 +99,19 @@ plotVoronoiTreeOutput <- function(outputId, width = '100%', height = '800px'){
 }
 
 #' @rdname plotVoronoiTree-shiny
+
+#' @param expr An expression that generates a mywidget
+#' @param env The environment in which to evaluate \code{expr}.
+#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
+#'   is useful if you want to save an expression in a variable.
+#'
 #' @export
 renderplotVoronoiTree <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, plotVoronoiTreeOutput, env, quoted = TRUE)
 }
 
+#' @rdname renderplotVoronoiTree-shiny
 
 
 
