@@ -59,7 +59,7 @@ plotLogOddsRatio <- function(corpus,
     groups = quanteda::docid(tk))
   
   data <- quanteda::convert(x = data, to = "data.frame")
-  data <- reshape2::melt(data)
+  data <- reshape2::melt(data, id="doc_id")
   
   data <- data[data$value>0,]
   
@@ -86,10 +86,10 @@ plotLogOddsRatio <- function(corpus,
                   sum)
   
   bk <- ag %>% 
-    tidylo::bind_log_odds(set = .data$ref, 
-                          feature = .data$source, 
-                          n = .data$freq) %>%
-    dplyr::arrange(dplyr::desc(.data$log_odds_weighted))
+    tidylo::bind_log_odds(set = ref, 
+                          feature = source, 
+                          n = freq) %>%
+    dplyr::arrange(dplyr::desc(log_odds_weighted))
   
   bk$log_freq <- log(bk$freq)
   
