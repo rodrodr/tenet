@@ -104,7 +104,7 @@ HTMLWidgets.widget({
         // https://www.amcharts.com/docs/v5/concepts/animations/
         series.appear();
       
-        legend.data.push(series);
+        // legend.data.push(series);
       }
         
         
