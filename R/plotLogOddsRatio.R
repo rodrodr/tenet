@@ -30,6 +30,7 @@ plotLogOddsRatio <- function(corpus,
                               interactive=TRUE,
                               return.data=FALSE){
   
+  ref <- freq <- log_odds_weighted <- NULL
   
   tk<- quanteda::tokens(corpus, 
                         remove_symbols = TRUE, 

@@ -9,7 +9,7 @@ tagCorpus(corpus,
           dic,
           reshape.dic=TRUE,
           reshape.to="paragraphs",
-          palette = NULL, 
+          palette = c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"), 
           bright = 130,
           pagination = TRUE, 
           defaultPageSize=10,
@@ -21,7 +21,7 @@ tagCorpus(corpus,
 \item{dic}{The dictionary to be used to highlight or tag the submitted text.}
 \item{reshape.dic}{Logical. Indicates whether the corpus will be reshaped or not. The default is TRUE.}
 \item{reshape.to}{New document units in which the corpus will be recast. The default is "paragraphs". The other options are "documents" and "sentences".}
-\item{palette}{The color palette for the text to be highlighted. The default is NULL (Dark2 from RColorBrewer).}
+\item{palette}{The color palette for the text to be highlighted.}
 \item{bright}{The cutoff value for the color brightness to define if a label text will be white or black. The default is 130.}
 \item{pagination}{Indicates whether the table will organized according to equal-sized pages. The default is TRUE.}
 \item{defaultPageSize}{Default page size (number of elements) for the table. The default is 10.}

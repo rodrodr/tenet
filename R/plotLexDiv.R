@@ -22,7 +22,7 @@ plotLexDiv <- function(corpus,
                        subtitle="Keywords",
                        legend.title="Group",
                        legend.rows=1,
-                       palette=NULL,
+                       palette=c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"),
                        custom.color="black",
                        panel.bg.fill="grey98",
                        hline.color="white",
@@ -94,12 +94,8 @@ plotLexDiv <- function(corpus,
     gp <- gp[! is.na(gp)]
     
     
-    if(! is.null(palette)){
-      co <- selColors(palette=palette, col.n = length(gp))
-    }else{
-      co <- selColors(col.n = length(gp))
-    }
-    
+    co <- selColors(palette=palette, col.n = length(gp))
+
     p <- p + geom_segment(aes(xend = .data$index, yend = 0, color=.data$group), na.rm = na.rm)+
       facet_grid(.data$name~.)
     

@@ -84,18 +84,31 @@ plotVoronoiTree <- function(data,
 #'
 #' @param outputId output variable to read from
 #' @param width,height Must be a valid CSS unit (like \code{'100\%'},
-#'   \code{'400px'}, \code{'auto'}) or a number, which will be coerced to a
+#'   \code{'400px'}, \code{'500px'}) or a number, which will be coerced to a
 #'   string and have \code{'px'} appended.
-#' @param expr An expression that generates a mywidget
-#' @param env The environment in which to evaluate \code{expr}.
-#' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
-#'   is useful if you want to save an expression in a variable.
 #'
 #' @name plotVoronoiTree-shiny
 #'
 #' @export
-plotVoronoiTreeOutput <- function(outputId, width = '100%', height = '800px'){
+plotVoronoiTreeOutput <- function(outputId, width = '100%', height = '500px'){
   htmlwidgets::shinyWidgetOutput(outputId, 'plotVoronoiTree', width, height, package = 'tenet')
+}
+
+#' Shiny bindings for mywidget
+#'
+#' Output and render functions for using mywidget within Shiny
+#' applications and interactive Rmd documents.
+#'
+#' @param outputId output variable to read from
+#' @param width,height Must be a valid CSS unit (like \code{'100\%'},
+#'   \code{'400px'}, \code{'500px'}) or a number, which will be coerced to a
+#'   string and have \code{'px'} appended.
+#'
+#' @name plotVoronoiTree-shiny
+#'
+#' @export
+plotVoronoiTreeOutput <- function(outputId, width = '100%', height = '500px'){
+  htmlwidgets::shinyWidgetOutput(outputId, 'plotVoronoi', width, height, package = 'tenet')
 }
 
 #' @rdname plotVoronoiTree-shiny
@@ -105,13 +118,12 @@ plotVoronoiTreeOutput <- function(outputId, width = '100%', height = '800px'){
 #' @param quoted Is \code{expr} a quoted expression (with \code{quote()})? This
 #'   is useful if you want to save an expression in a variable.
 #'
+#' @name renderplotVoronoiTree-shiny
+#'
 #' @export
 renderplotVoronoiTree <- function(expr, env = parent.frame(), quoted = FALSE) {
   if (!quoted) { expr <- substitute(expr) } # force quoted
   htmlwidgets::shinyRenderWidget(expr, plotVoronoiTreeOutput, env, quoted = TRUE)
 }
 
-#' @rdname renderplotVoronoiTree-shiny
-
-
-
+#' @rdname remderplotVoronoiTree-shiny

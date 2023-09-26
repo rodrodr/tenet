@@ -59,22 +59,22 @@ fixParagraph <- function(text, check.doubleline=FALSE){
   
   tt <- stringi::stri_replace_all_regex(
     tt,
-    pattern = paste0("(\\,|\\;|\\||\\?|\\-|\\―|\\—|%)(\\n{",db,"})([a-zA-Z\\p{Latin}]{1})"),
+    pattern = paste0("(\\,|\\;|\\||\\?|\\-|\\u2014|\\u2015|%)(\\n{",db,"})([a-zA-Z\\p{Latin}]{1})"),
     replacement = "$1 $3")
   
   tt <- stringi::stri_replace_all_regex(
     tt,
-    pattern = paste0("(\\,\\;|\\||\\?|\\!|\\-|\\―|\\—|%)(\\n{",db,"})(\\,|\\;|\\||\\¿|\\¡|\\-|\\―|\\—|%)"),
+    pattern = paste0("(\\,\\;|\\||\\?|\\!|\\-|\\u2014|\\u2015|%)(\\n{",db,"})(\\,|\\;|\\||\\u00bf|\\u00a1|\\-|\\u2014|\\u2015|%)"),
     replacement = "$1 $3")
   
   tt <- stringi::stri_replace_all_regex(
     tt,
-    pattern = "(\\-|\\;|\\||\\-|\\―|\\—|%)(\\s{1})([a-zA-Z\\p{Latin}]{1})",
+    pattern = "(\\-|\\;|\\||\\-|\\u2014|\\u2015|%)(\\s{1})([a-zA-Z\\p{Latin}]{1})",
     replacement = "$3")
   
   tt <- stringi::stri_replace_all_regex(
     tt,
-    pattern = "(\\-|\\;|\\||\\-|\\―|\\—|%)(\\s{1})([a-zA-Z|\\p{Latin}]{1,})",
+    pattern = "(\\-|\\;|\\||\\-|\\u2014|\\u2015|%)(\\s{1})([a-zA-Z|\\p{Latin}]{1,})",
     replacement = "$3")
   
   return(tt)

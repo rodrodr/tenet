@@ -14,7 +14,7 @@ tagCorpus <- function(corpus,
                       dic,
                       reshape.dic=TRUE,
                       reshape.to="paragraphs",
-                      palette = NULL,
+                      palette = c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"),
                       bright = 130, 
                       pagination = TRUE, 
                       defaultPageSize=10,
@@ -33,12 +33,8 @@ tagCorpus <- function(corpus,
   
   nm <- names(dic)
   
-  if(! is.null(palette)){
-    col <- selColors(palette=palette, col.n=length(nm))
-  }else{
-    col <- selColors(col.n=length(nm))
-  }
-  
+  col <- selColors(palette=palette, col.n=length(nm))
+
   tcol <- colBright(col, limit = bright)
   
   dc <- data.frame()

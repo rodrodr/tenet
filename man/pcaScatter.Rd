@@ -15,7 +15,7 @@ pcaScatter(corpus,
            title = "Title",
            caption = "Source: Own elaboration.",
            alpha = 0.5,
-           palette = NULL)
+           palette = c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"))
 }
 
 \arguments{

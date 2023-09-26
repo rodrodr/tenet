@@ -19,7 +19,7 @@ plotLexDiv(corpus,
            subtitle="Keywords",
            legend.title="Group",
            legend.rows=1,
-           palette=NULL,
+           palette=c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"),
            custom.color="black",
            panel.bg.fill="grey98",
            hline.color="white",
@@ -56,7 +56,7 @@ plotLexDiv(corpus,
 
 \item{legend.rows}{The number of rows organizing groups in the legend. The default is 1.}
 
-\item{palette}{The color palette included in either RColorBrewer or wesanderson palettes. The default is "Royal1".}
+\item{palette}{The color palette to be employed.}
 
 \item{custom.color}{The list of custom color to be used when no groups or dictionary entries are defined. The default is "black".}
 

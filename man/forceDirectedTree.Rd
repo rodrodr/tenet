@@ -7,7 +7,7 @@ Creates a Force Directed Tree Chart for visualizing hierarchical data.
 \usage{
 forceDirectedTree(json_data, 
                   attraction=-5, 
-                  palette=NULL, 
+                  palette=c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"), 
                   col.n=9, 
                   show.link=TRUE, 
                   height=800,

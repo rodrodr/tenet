@@ -10,7 +10,7 @@
 tagText <- function(text, 
                     title="Document Title", 
                     keywords=NULL,
-                    palette=NULL, 
+                    palette=c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"), 
                     bright=130, 
                     tooltip=TRUE, 
                     html.return=FALSE, 
@@ -22,20 +22,12 @@ tagText <- function(text,
   if (class(keywords)[1]=="dictionary2"){
     dic <- keywords
     
-    if(! is.null(palette)){
-      col <- selColors(palette=palette, col.n = length(dic))
-    }else{
-      col <- selColors(col.n = length(dic))
-    }
-    
+    col <- selColors(palette=palette, col.n = length(dic))
+
   }else{
     dic <- NULL
     kw <- keywords
-    if(! is.null(palette)){
-      col <- selColors(palette=palette, col.n = length(kw))
-    }else{
-      col <- selColors(col.n = length(kw))
-    }
+    col <- selColors(palette=palette, col.n = length(kw))
   }
   
   txt <- stringi::stri_trans_general(text, "Latin-ASCII")

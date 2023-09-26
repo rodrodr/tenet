@@ -12,7 +12,7 @@ forceClusTree <- function(corpus,
                            url.return = FALSE,
                            html.return = FALSE,
                            viewer = TRUE,
-                           palette = NULL,
+                           palette = c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"),
                            groupvar = NULL,
                            height=580,
                            link.col="#734421",
@@ -120,17 +120,9 @@ forceClusTree <- function(corpus,
   gp <- unique(dt$group)
   
   if(length(gp)==1){
-    if(! is.null(palette)){
-      dt$color <- selColors(palette = palette, col.n = nrow(nodes))
-    }else{
-      dt$color <- selColors(col.n = nrow(nodes))
-    }
+    dt$color <- selColors(palette = palette, col.n = nrow(nodes))
   }else{
-    if(! is.null(palette)){
-      pal <- selColors(palette = palette, col.n = length(gp))
-    }else{
-      pal <- selColors(col.n = length(gp))
-    }  
+    pal <- selColors(palette = palette, col.n = length(gp))
     dx <- data.frame(group=gp, color=pal)
     dt <- merge(dt, dx, by="group", all.x=T)
   }
