@@ -34,13 +34,13 @@ HTMLWidgets.widget({
           // Add legend
           // https://www.amcharts.com/docs/v5/charts/xy-chart/legend-xy-series/
           var legend = chart.children.push(
-            am5.Legend.new(root, {
-              centerY: am5.p50,
-              y: am5.p50,
-              layout: root.verticalLayout,
-              clickTarget: "none"
-            })
-          );
+              am5.Legend.new(root, {
+                position: "top",
+                layout: root.horizontalLayout,
+                clickTarget: "itemContainer"
+              })
+            );
+
           
           legend.valueLabels.template.set("forceHidden", true);
 
