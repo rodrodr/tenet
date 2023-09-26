@@ -59,9 +59,20 @@ HTMLWidgets.widget({
         
         xAxis.data.setAll(data);
         
+        let xRenderer = xAxis.get("renderer");
+        xRenderer.labels.template.setAll({
+          fontSize: "0.75em"
+        });
+        
         var yAxis = chart.yAxes.push(am5xy.ValueAxis.new(root, {
           renderer: am5xy.AxisRendererY.new(root, {})
         }));
+        
+        let yRenderer = yAxis.get("renderer");
+        yRenderer.labels.template.setAll({
+          fontSize: "0.75em"
+        });
+
         
         
         // Add series
