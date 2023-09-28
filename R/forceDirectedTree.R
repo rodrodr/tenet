@@ -13,6 +13,8 @@ forceDirectedTree <- function(json_data, attraction=-5, palette = c("#DD8D29","#
 
   co <- paste0('am5.color("', co,'")',collapse = ",\n")
   
+  co <- paste0("[", co, "]")
+  
   colors <- htmlwidgets::JS(co)
   
   data <- paste0("{

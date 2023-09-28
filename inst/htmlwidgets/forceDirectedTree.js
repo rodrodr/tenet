@@ -46,7 +46,7 @@ HTMLWidgets.widget({
           centerStrength: 0.8
         }));
         
-        series.get("colors").set("colors",[x.colors]);
+        series.get("colors").set("colors",x.colors);
         
         series.links.template.set("strength", 0.9);
         
