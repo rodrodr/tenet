@@ -60,7 +60,7 @@ HTMLWidgets.widget({
   
         series.links.template.setAll({
         colorMode: "solid",
-        strokeWidth: linkWidth,
+        strokeWidth: x.linkWidth,
         strokeOpacity: 1
       });
 
