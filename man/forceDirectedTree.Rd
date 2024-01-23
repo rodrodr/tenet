@@ -5,7 +5,8 @@
 Creates a Force Directed Tree Chart for visualizing hierarchical data.
 }
 \usage{
-forceDirectedTree(json_data, 
+forceDirectedTree(data,
+                  value_col="value",
                   attraction=-5, 
                   palette=c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"), 
                   col.n=9, 
@@ -18,7 +19,9 @@ forceDirectedTree(json_data,
 }
 
 \arguments{
-\item{json_data}{An hierarchical json string as the one produced by the function jsonTree.}
+\item{data}{An hierarchical data.frame to be converted in a json tree.}
+
+\item{value_col}{The name of the variable containing the frequency or the value to be represented. The default is "value".}
 
 \item{attraction}{The intensity of attraction among nodes. The default is -5.}
 
@@ -52,13 +55,7 @@ dt <- data.frame(
           Word=c("sing","harmonica"), 
           Frequency=c(2,3))
           
-# Call the function jsonTree to generate data
-jso <- jsonTree(data=dt, 
-         groups=c("Characters","Word.Type"),
-         elements="Word",
-         value="Frequency")
-
 # Create the chart
-forceDirectedTree(jso)
+forceDirectedTree(dt, value_col="Frequency")
 }
 }

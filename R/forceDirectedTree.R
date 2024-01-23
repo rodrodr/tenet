@@ -3,9 +3,14 @@
 #' Creates an amCharts Sankey Diagram
 #'
 #' @import htmlwidgets
+#' @import d3r
 #' 
 #' @export
-forceDirectedTree <- function(json_data, attraction=-5, palette = c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"),col.n=9, show.link=TRUE, height=800, width="100%", max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
+forceDirectedTree <- function(data, value_col="value", attraction=-5, palette = c("#DD8D29","#E2D200","#46ACC8","#E58601","#B40F20"),col.n=9, show.link=TRUE, height=800, width="100%", max.radius=5, elementId="chartdiv", tooltip.text="{name}: {value}"){
+  
+  json_data <- as.character(d3r::d3_nest(data = data, value_cols = value_col))
+  
+  json_data <- gsub(value_col, "value", json_data)
   
   max.radius <- as.character(max.radius)
   
@@ -17,11 +22,11 @@ forceDirectedTree <- function(json_data, attraction=-5, palette = c("#DD8D29","#
   
   colors <- htmlwidgets::JS(co)
   
-  data <- paste0("{
-    value: 0,
-    children: [",json_data, "]}")
+  # data <- paste0("{
+  #   value: 0,
+  #   children: [",json_data, "]}")
   
-  data <- htmlwidgets::JS(data)
+  data <- htmlwidgets::JS(json_data)
   
   opacity <- 1
   

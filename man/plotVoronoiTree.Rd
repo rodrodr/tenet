@@ -4,9 +4,7 @@
 \usage{
 plotVoronoiTree(
                 data,
-                groups = "groups",
-                elements = "elements",
-                value = "value",
+                value_col="value",
                 height = 500,
                 font.size = 11,
                 font.size.parent = 25,
@@ -28,11 +26,7 @@ Creates an amCharts Voronoi Tree Diagram for visualiazing hierarchical data.
 \arguments{
 \item{data}{A data.frame with three columns: groups, elements, and value.}
 
-\item{groups}{The name of the variable containing the information about the group, origin or aggregate measure. The default is "group".}
-
-\item{elements}{The name of the variable containing the elements contained in each group. The default is "elements".}
-
-\item{value}{The name of the variable containing the frequency or the value of the elements. The default is "value".}
+\item{value_col}{The name of the variable containing the frequency or the value to be represented. The default is "value".}
 
 \item{height}{The height of the html panel in pixels. The default is 500.}
 
@@ -76,27 +70,22 @@ xx <- countKeywords(cp,
     
 xx <- aggregate(list(frequency=xx$frequency), 
                 by=list(groups=xx$groups, 
-                        level1=xx$level1), 
+                        level1=xx$level1,
+                        level2=xx$level2), 
                 sum, na.rm=T)
     
 # Generates a circle voronoi tree diagram
 plotVoronoiTree(xx, 
-                groups="groups",
-                elements="level1",
-                value = "frequency")
+                value_col = "frequency")
                     
 # Rectangle 
 plotVoronoiTree(xx, 
-                groups="groups",
-                elements="level1",
-                value = "frequency",
+                value_col = "frequency",
                 type = "rectangle")
     
 # Triangle 
 plotVoronoiTree(xx, 
-                groups="groups",
-                elements="level1",
-                value = "frequency",
+                value_col = "frequency",
                 cornerCount= 3)
 }
 }

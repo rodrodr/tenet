@@ -5,9 +5,7 @@
 #' 
 #' @export
 plotVoronoiTree <- function(data, 
-                            groups="groups", 
-                            elements="elements", 
-                            value="value", 
+                            value_col="value", 
                             height=500, 
                             font.size=11, 
                             font.size.parent=25, 
@@ -20,27 +18,10 @@ plotVoronoiTree <- function(data,
                             initialDepth=2, 
                             elementId="voronoitreediv"){
   
-  data <- data[,c(groups,elements, value)]
-  names(data) <- c("groups","elements","value")
   
-  nm <- unique(data$groups)
+  cx <- as.character(d3r::d3_nest(data = data, value_cols = value_col))
   
-  cs <- vector()
-  
-  for(i in 1:length(nm)){
-    el <- data$elements[data$groups==nm[i]]
-    vl <- data$value[data$groups==nm[i]]
-    
-    tt <- paste0("{'name': '", el, "', 'value': ", vl,"}", collapse = ",\n")
-    
-    tx <- paste0("{'name': '", nm[i], "', \n'children':[\n", tt, "\n]}")
-    
-    cs <- c(cs, tx)
-  }
-  
-  cs <- paste0(cs, collapse = ",\n")
-  
-  cx <- paste0("{\n'children': [\n", cs, "\n]}")
+  cx <- gsub(value_col, "value", cx)
   
   data <- htmlwidgets::JS(cx)
   

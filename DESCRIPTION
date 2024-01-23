@@ -10,7 +10,7 @@ License: GPL (>= 3)
 Imports: stringi, grDevices, quanteda, rstudioapi, ggplot2, ggtext, quanteda.textstats, 
 		FactoMineR, ggiraph, ggthemes, reshape2, igraph, dplyr, reactable, 
 		 tidygraph, ggraph, collapse, readr, htmlwidgets, jsonlite, ggforce, ggrepel, 
-		 scales, tidylo
+		 scales, tidylo, d3r
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
