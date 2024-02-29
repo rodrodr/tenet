@@ -56,9 +56,9 @@ plotLexDiv(corpus,
 
 \item{legend.rows}{The number of rows organizing groups in the legend. The default is 1.}
 
-\item{palette}{The color palette to be employed.}
+\item{palette}{The list of color names of hexadecimal codes to represent groups.}
 
-\item{custom.color}{The list of custom color to be used when no groups or dictionary entries are defined. The default is "black".}
+\item{custom.color}{The custom color to be used when no groups or dictionary entries are defined. The default is "black".}
 
 \item{panel.bg.fill}{The background color for the text panels. The default color is "grey98".}
 
