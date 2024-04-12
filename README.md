@@ -1,6 +1,6 @@
-# pkgdown <img src="man/figures/tenet_logo.png" align="right" height="120" />
+# tenet <img src="man/figures/tenet_logo.png" align="right" />
 
-##  tenet - Text Mining Functions for the Humanities and the Social Sciences
+Tools for textual analysis and visualization for the Humanities and the Social Sciences.
 
 ## Package installation
 
