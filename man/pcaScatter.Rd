@@ -37,6 +37,9 @@ The function pcaScatter allows users to perform two dimension reduction analysis
 The results are either an interactive graph or a ggplot2 object to be further edited by the user.
 }
 \examples{
+
+\dontrun{
+
 # Create a corpus object
 library(quanteda)
 cp <- corpus(spa.inaugural)
@@ -51,4 +54,6 @@ pcaScatter(cp,
            type="ca",
            title = "Disc. Inauguración (1979-2019)", 
            min.freq = 10)
+}
+
 }
