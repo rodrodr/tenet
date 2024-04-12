@@ -21,6 +21,12 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/tagging_texts.html">Tagging Texts Using Keywords or Dictionaries</a>
+  </div>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -65,146 +71,11 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># some operations on the corpus</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># some operations on the corpus</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">bra.inaugural</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Corpus consisting of 37 documents, showing 37 documents:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                  Text Types Tokens Sentences Year</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         01. Deodoro da Fonseca (1889)   193    367         9 1889</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           02. Floriano Peixoto (1891)   389    835        22 1891</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         03. Prudente de Moraes (1894)   637   1438        26 1894</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               04. Campos Sales (1898)  1417   4053       109 1898</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            05. Rodrigues Alves (1902)   857   2112        55 1902</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              06. Affonso Penna (1906)  1470   3952       104 1906</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          07. Hermes da Fonseca (1910)  1138   2966        51 1910</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             08. Wenceslau Brás (1914)  1526   4285       131 1914</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            09. Epitácio Pessoa (1919)  1420   4094       113 1919</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           10. Arthur Bernardes (1922)   319    586        13 1922</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            11. Washington Luís (1926)   256    505        19 1926</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             12. Getúlio Vargas (1930)   789   1753        44 1930</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             13. Getúlio Vargas (1934)   592   1175        47 1934</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             14. Getúlio Vargas (1937)  1488   3924       102 1937</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        15. Eurico Gaspar Dutra (1946)   421   1310        25 1946</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             16. Getúlio Vargas (1951)   604   1310        51 1951</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       17. Juscelino Kubitschek (1956)   322    711        23 1956</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              18. Jânio Quadros (1961)   386    737        25 1961</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               19. João Goulart (1961)   461   1191        49 1961</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             20. Castelo Branco (1964)   512   1151        37 1964</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              21. Costa e Silva (1967)   639   1472        54 1967</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   22. Emílio Garrastazu Médici (1969)   766   2275        85 1969</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             23. Ernesto Geisel (1974)   379    715        17 1974</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    24. João Batista Figueiredo (1979)   756   1754        82 1979</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                25. José Sarney (1985)  1559   4475       261 1985</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             26. Tancredo Neves (1985)  1198   3282       112 1985</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    27. Fernando Collor de Melo (1990)  2076   6664       261 1990</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              28. Itamar Franco (1992)   339    700        34 1992</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  29. Fernando Henrique Cardoso (1995)  1297   3729       163 1995</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  30. Fernando Henrique Cardoso (1999)  1112   2976       173 1999</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  31. Luis Inácio Lula da Silva (2003)  1530   4380       147 2003</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  32. Luis Inácio Lula da Silva (2007)  1455   4282       201 2007</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             33. Dilma Rousseff (2011)  1343   4305       177 2011</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             34. Dilma Rousseff (2015)  1582   5122       195 2015</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               35. Michel Temer (2016)  1089   3175       138 2016</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             36. Jair Bolsonaro (2019)   580   1298        60 2019</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  37. Luis Inácio Lula da Silva (2023)  1213   3318       147 2023</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  President       Date Military    Party Interrupted</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         Deodoro da Fonseca 1889-11-16      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           Floriano Peixoto 1891-11-23      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>         Prudente de Moraes 1894-11-15       No      PRF          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Campos Sales 1898-11-15       No      PRP          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Rodrigues Alves 1902-11-15       No      PRP          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Affonso Penna 1906-11-15       No      PRM         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          Hermes da Fonseca 1910-11-15      Yes      PRC          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Wenceslau Brás 1914-11-15       No      PRM         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Epitácio Pessoa 1919-09-03       No      PRM          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           Arthur Bernardes 1922-11-16       No      PRM          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Washington Luís 1926-11-16       No      PRP         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Getúlio Vargas 1930-10-24       No No party          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Getúlio Vargas 1934-07-21       No No party          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Getúlio Vargas 1937-11-10       No No party         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        Eurico Gaspar Dutra 1946-01-31      Yes      PSD          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Getúlio Vargas 1951-01-31       No      PTB         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>       Juscelino Kubitschek 1956-01-31       No      PSD          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Jânio Quadros 1961-01-31       No      PTN         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               João Goulart 1961-09-08       No      PTB         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Castelo Branco 1964-04-15      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Costa e Silva 1967-03-15      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Emílio Garrastazu Médici 1969-10-30      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Ernesto Geisel 1974-03-15      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    João Batista Figueiredo 1979-03-15      Yes Military          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                José Sarney 1985-03-15       No     PMDB          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Tancredo Neves 1985-07-22       No     PMDB         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    Fernando Collor de Melo 1990-03-15       No      PRN         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              Itamar Franco 1992-10-02       No     PMDB          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Fernando Henrique Cardoso 1995-01-01       No     PSDB          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Fernando Henrique Cardoso 1999-01-01       No     PSDB          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Luis Inácio Lula da Silva 2003-01-01       No       PT          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Luis Inácio Lula da Silva 2007-01-01       No       PT          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Dilma Rousseff 2011-01-01       No       PT          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Dilma Rousseff 2015-01-01       No       PT         Yes</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               Michel Temer       &lt;NA&gt;       No     PMDB          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Jair Bolsonaro 2019-01-01       No      PSL          No</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Luis Inácio Lula da Silva 2023-01-01       No       PT        &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Interrupt.Cause Elected                link_photo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/bjUY0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/luzEG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/bdgAR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/buLQ5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/lwCN3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Death     Yes https://shorturl.at/gwGX2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/bcoK2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Death     Yes https://shorturl.at/gluJN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/JU147</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/wAHJZ</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Coup     Yes https://shorturl.at/tRZ27</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/antuC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/antuC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Coup      No https://shorturl.at/antuC</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/fkoEH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          Suicide     Yes https://shorturl.at/brGWX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/nHP59</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        Renounced     Yes https://shorturl.at/bDGLM</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             Coup      No https://shorturl.at/asIT4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/aoqsS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/hrX14</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/lmAHX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/oszGT</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/bikOR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/fqzG5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            Death      No https://shorturl.at/mAWX5</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Impeachment     Yes https://shorturl.at/agzWY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/euM45</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/ghNX8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/ghNX8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/dsAM3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/dsAM3</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/lpvB6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Impeachment     Yes https://shorturl.at/lpvB6</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No      No https://shorturl.at/pH489</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               No     Yes https://shorturl.at/bsu56</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             &lt;NA&gt;     Yes https://shorturl.at/ijkyY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="va">bra.inaugural</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Corpus consisting of 37 documents and 9 docvars.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 01. Deodoro da Fonseca (1889) :</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "Concidadãos – O povo, o exército e a armada nacional, em per..."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 02. Floriano Peixoto (1891) :</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "Tendo assumido o governo do Estado nos termos da Constituiçã..."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 03. Prudente de Moraes (1894) :</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "Á Nação Brasileira* Assumindo hoje a Presidência da Repúblic..."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 04. Campos Sales (1898) :</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "Ao assumir o governo da República, cheio de confiança nos po..."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 05. Rodrigues Alves (1902) :</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "À Nação Assumindo hoje o cargo de Presidente da República, p..."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 06. Affonso Penna (1906) :</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "À NAÇÃO Ao Assumir a Suprema Magistratura da Republica, no p..."</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [ reached max_ndoc ... 31 more documents ]</span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

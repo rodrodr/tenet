@@ -20,6 +20,7 @@ The function fixes texts extracted from documents or formats that convert each r
 A character vector with the corrected text.
 }
 \examples{
+\dontrun{
 # An example text from Lewis Mumford "The Myth of the Maschine":
 tx <- "From Peking Man onward, some five hundred thousand years ago, caves have
 served as the womb and the tomb of human culture. All over the world, caves and
@@ -44,4 +45,5 @@ tx <- fixParagraph(tx)
 
 # Reinspect the text format
 cat(tx)
+}
 }

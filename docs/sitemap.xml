@@ -1,135 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://rodrodr.github.io/tenet/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://rodrodr.github.io/tenet/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://rodrodr.github.io/tenet/articles/index.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://rodrodr.github.io/tenet/articles/tagging_texts.html</loc>
   </url>
   <url>
-    <loc>/reference/Pirandello.html</loc>
+    <loc>https://rodrodr.github.io/tenet/authors.html</loc>
   </url>
   <url>
-    <loc>/reference/br.films.html</loc>
+    <loc>https://rodrodr.github.io/tenet/index.html</loc>
   </url>
   <url>
-    <loc>/reference/bra.inaugural.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/Pirandello.html</loc>
   </url>
   <url>
-    <loc>/reference/cis.corrupt.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/br.films.html</loc>
   </url>
   <url>
-    <loc>/reference/colBright.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/bra.inaugural.html</loc>
   </url>
   <url>
-    <loc>/reference/corNet.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/cis.corrupt.html</loc>
   </url>
   <url>
-    <loc>/reference/corTerms.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/colBright.html</loc>
   </url>
   <url>
-    <loc>/reference/countKeywords.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/corNet.html</loc>
   </url>
   <url>
-    <loc>/reference/dic.pol.es.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/corTerms.html</loc>
   </url>
   <url>
-    <loc>/reference/filterWords.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/countKeywords.html</loc>
   </url>
   <url>
-    <loc>/reference/filterWordsAttribute.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/dic.pol.es.html</loc>
   </url>
   <url>
-    <loc>/reference/fixParagraph.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/filterWords.html</loc>
   </url>
   <url>
-    <loc>/reference/forceClusTree-shiny.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/filterWordsAttribute.html</loc>
   </url>
   <url>
-    <loc>/reference/forceClusTree.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/fixParagraph.html</loc>
   </url>
   <url>
-    <loc>/reference/forceDirectedTree-shiny.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/forceClusTree-shiny.html</loc>
   </url>
   <url>
-    <loc>/reference/forceDirectedTree.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/forceClusTree.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/forceDirectedTree-shiny.html</loc>
   </url>
   <url>
-    <loc>/reference/matchCodes.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/forceDirectedTree.html</loc>
   </url>
   <url>
-    <loc>/reference/pal.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/pcaScatter.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/matchCodes.html</loc>
   </url>
   <url>
-    <loc>/reference/plotChord-shiny.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/pal.html</loc>
   </url>
   <url>
-    <loc>/reference/plotChord.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/pcaScatter.html</loc>
   </url>
   <url>
-    <loc>/reference/plotLexDiv.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotChord-shiny.html</loc>
   </url>
   <url>
-    <loc>/reference/plotLogOddsRatio.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotChord.html</loc>
   </url>
   <url>
-    <loc>/reference/plotSankey-shiny.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotLexDiv.html</loc>
   </url>
   <url>
-    <loc>/reference/plotSankey.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotLogOddsRatio.html</loc>
   </url>
   <url>
-    <loc>/reference/plotSolar.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotSankey-shiny.html</loc>
   </url>
   <url>
-    <loc>/reference/plotStream-shiny.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotSankey.html</loc>
   </url>
   <url>
-    <loc>/reference/plotStream.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotSolar.html</loc>
   </url>
   <url>
-    <loc>/reference/plotVoronoiTree-shiny.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotSpike.html</loc>
   </url>
   <url>
-    <loc>/reference/plotVoronoiTree.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotStream-shiny.html</loc>
   </url>
   <url>
-    <loc>/reference/selColors.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotStream.html</loc>
   </url>
   <url>
-    <loc>/reference/spa.inaugural.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotVoronoiTree-shiny.html</loc>
   </url>
   <url>
-    <loc>/reference/spa.sessions.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/plotVoronoiTree.html</loc>
   </url>
   <url>
-    <loc>/reference/streamChart.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/selColors.html</loc>
   </url>
   <url>
-    <loc>/reference/tagCorpus.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/spa.inaugural.html</loc>
   </url>
   <url>
-    <loc>/reference/tagText.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/spa.sessions.html</loc>
   </url>
   <url>
-    <loc>/reference/tfRatio.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/streamChart.html</loc>
   </url>
   <url>
-    <loc>/reference/wordtree.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/tagCorpus.html</loc>
   </url>
   <url>
-    <loc>/reference/x_wordtree.html</loc>
+    <loc>https://rodrodr.github.io/tenet/reference/tagText.html</loc>
+  </url>
+  <url>
+    <loc>https://rodrodr.github.io/tenet/reference/tfRatio.html</loc>
+  </url>
+  <url>
+    <loc>https://rodrodr.github.io/tenet/reference/wordtree.html</loc>
+  </url>
+  <url>
+    <loc>https://rodrodr.github.io/tenet/reference/x_wordtree.html</loc>
   </url>
 </urlset>

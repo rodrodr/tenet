@@ -29,8 +29,10 @@ bra.inaugural
 This dataset contains 37 Inaugural Speeches from 1889 to 2023.
 }
 \examples{
+\dontrun{
 # some operations on the corpus
 summary(bra.inaugural)
 bra.inaugural
+}
 }
 \keyword{data}

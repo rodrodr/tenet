@@ -30,8 +30,10 @@ cis.corrupt
 This dataset contains the transcription of 7 focus groups on political corruption in Spain. The study was performed by the Centro de Investigaciones Sociológicas (CIS) under the number E2863 in March, 2011.
 }
 \examples{
+\dontrun{
 # some operations on the data
 summary(cis.corrupt)
-cis.corrupt
+head(cis.corrupt)
+}
 }
 \keyword{data}

@@ -30,6 +30,7 @@ The function corNet generates a network graph (sociogram) for the correlation am
 A ggplot2 chart.
 }
 \examples{
+\dontrun{
 # Create a corpus object
 cb <- bra.inaugural
 
@@ -46,5 +47,6 @@ ll <- corTerms(cb,
 
 # Plots the sociogram
 corNet(ll)
+}
 }
 

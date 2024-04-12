@@ -23,8 +23,10 @@ spa.inaugural
 This dataset contains 15 Inaugural Speeches from 1979 to 2020.
 }
 \examples{
+\dontrun{
 # some operations on the corpus
 summary(spa.inaugural)
-spa.inaugural
+head(spa.inaugural)
+}
 }
 \keyword{data}

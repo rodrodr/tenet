@@ -33,6 +33,7 @@ The function countKeywords calculates number of times each term in a dictionary 
 A data.frame object containing the groups (all if the group.var argument is not specified), the categories of the dictionary, the keywords composing each category or coding level, and the frequency.
 }
 \examples{
+\dontrun{
 # Create a corpus object
 library(quanteda)
 cb <- corpus(spa.inaugural)
@@ -50,4 +51,5 @@ d <- countKeywords(cb,
                    dic,
                    group.var="President",
                    rel.freq=TRUE)
+}
 }

@@ -21,6 +21,12 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/tagging_texts.html">Tagging Texts Using Keywords or Dictionaries</a>
+  </div>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -68,7 +74,8 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># An example text from Lewis Mumford "The Myth of the Maschine":</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># An example text from Lewis Mumford "The Myth of the Maschine":</span></span></span>
 <span class="r-in"><span><span class="va">tx</span> <span class="op">&lt;-</span> <span class="st">"From Peking Man onward, some five hundred thousand years ago, caves have</span></span></span>
 <span class="r-in"><span><span class="st">served as the womb and the tomb of human culture. All over the world, caves and</span></span></span>
 <span class="r-in"><span><span class="st">grottoes became sacred places, reserved for ceremonials and for memorials of the</span></span></span>
@@ -86,28 +93,13 @@
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Inspect the text format</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">tx</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> From Peking Man onward, some five hundred thousand years ago, caves have</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> served as the womb and the tomb of human culture. All over the world, caves and</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> grottoes became sacred places, reserved for ceremonials and for memorials of the</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> dead. The paleolithic cave (top left) at La Magdeleine has two female figures at</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> either side of the entrance and a horse in the foreground at the right, not visible</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> here. The Temple of Siva at Elephanta, one of the many examples in India of</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> temples and statues hollowed out of a stone mountain, repeats that ancient</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> arrangement of symbols. But early man also appropriated caves for shelter, se-</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> curity, and storage: witness (top right) this later Amerindian habitation within</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> a cliff. (Top left) La Magdeleine (Tarn). From Sigfried Giedion, 'The Eternal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Present.' Photograph by Achille Weider. (Top right) Gila National Monument.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> New Mexico. Courtesy of United States Department of the Interior, National</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Park Service Photo. (Bottom) Siva Temple, Elephanta, c. Eighth century. Cour-</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> tesy of Museum of Fine Arts, Boston.</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Apply the function</span></span></span>
 <span class="r-in"><span><span class="va">tx</span> <span class="op">&lt;-</span> <span class="fu">fixParagraph</span><span class="op">(</span><span class="va">tx</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Reinspect the text format</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">tx</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> From Peking Man onward, some five hundred thousand years ago, caves have served as the womb and the tomb of human culture. All over the world, caves and grottoes became sacred places, reserved for ceremonials and for memorials of the dead. The paleolithic cave (top left) at La Magdeleine has two female figures at either side of the entrance and a horse in the foreground at the right, not visible here. The Temple of Siva at Elephanta, one of the many examples in India of temples and statues hollowed out of a stone mountain, repeats that ancient arrangement of symbols. But early man also appropriated caves for shelter, security, and storage: witness (top right) this later Amerindian habitation within a cliff. (Top left) La Magdeleine (Tarn). From Sigfried Giedion, 'The Eternal Present.' Photograph by Achille Weider. (Top right) Gila National Monument.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> New Mexico. Courtesy of United States Department of the Interior, National Park Service Photo. (Bottom) Siva Temple, Elephanta, c. Eighth century. Courtesy of Museum of Fine Arts, Boston.</span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

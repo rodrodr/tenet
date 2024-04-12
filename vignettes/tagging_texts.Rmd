@@ -1,0 +1,188 @@
+---
+title: "Tagging Texts Using Keywords or Dictionaries"
+author: "Rodrigo Rodrigues-Silveira"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tagging Texts Using Keywords or Dictionaries}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE, warning=FALSE, message=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(tenet)
+library(quanteda)
+
+# Creates a dictionary form some policy categories
+dic <- dictionary(
+    list(
+    economica=c("econom",
+               "inversion",
+               "empresa",
+               "desarroll",
+               "monetari",
+               "industri",
+               "agric",
+               "agrari"),
+    fiscal=c("hacienda",
+               "gasto",
+               "impuest",
+               "presupuest",
+               "tribut",
+               "tasa",
+               "fiscal"),
+    educacion=c("educa",
+             "profesor",
+             "docent",
+             "escuel",
+             "colegio",
+             "universi",
+             "formación"),
+    sanidad=c("sanidad",
+               "salud",
+               "hospital",
+               "sanitari",
+               "médic",
+               "enfermer",
+               "salud"),
+    medioambiente=c("sostenible",
+                 "cambio clima",
+                 "medioambient",
+                 "reciclaje",
+                 "ecológico",
+                 "límpia",
+                 "invernadero",
+                 "emisiones",
+                 "carbono",
+                 "plástico",
+                 "fósiles")))
+
+
+```
+
+## Introduction
+
+In many occasions we need to check the presence of certain keywords or categories in a text. This procedure is commonplace in most Content Analysis and Text Mining tasks. This vignette provides a brief guide on how to tag texts using dictionaries in R. 
+
+
+## Taggin one text at a time
+
+The package `tenet` provides a function to tag one text at a time. The function `tag_text` receives a text and a dictionary as arguments. The dictionary must be a named list where the names are the categories and the elements are the keywords. 
+
+```{r, eval=FALSE}
+
+library(tenet)
+
+# Select Adolfo Suarez inaugural speech
+text <- as.character(spa.inaugural$text[1])
+
+# Highlight some keywords using a color for 
+# each word
+tagText(text, 
+        keywords = c("politic", 
+                     "acci", 
+                     "conflict", 
+                     "partid", 
+                     "defensa",
+                     "fuerzas armadas"), 
+        palette = pal$cat.awtools.spalette.6,
+        font.size = 24, 
+        title = "Adolfo Suarez Inaugural Speech (1979)",
+        margin = 400)
+
+```
+
+The code above will generate a html file with the text and the keywords highlighted. The results identify where these words appear on the text and facilitate the localization of themes or ideas that can help to uncover patterns.
+
+The function also allow the use of dictionaries to tag texts. The dictionaries must be named lists where the names are the categories and the elements are the keywords. 
+
+```{r, eval=FALSE}
+
+library(quanteda)
+
+# Creates a dictionary form some policy categories
+dic <- dictionary(
+    list(
+    economica=c("econom",
+               "inversion",
+               "empresa",
+               "desarroll",
+               "monetari",
+               "industri",
+               "agric",
+               "agrari"),
+    fiscal=c("hacienda",
+               "gasto",
+               "impuest",
+               "presupuest",
+               "tribut",
+               "tasa",
+               "fiscal"),
+    educacion=c("educa",
+             "profesor",
+             "docent",
+             "escuel",
+             "colegio",
+             "universi",
+             "formación"),
+    sanidad=c("sanidad",
+               "salud",
+               "hospital",
+               "sanitari",
+               "médic",
+               "enfermer",
+               "salud"),
+    medioambiente=c("sostenible",
+                 "cambio clima",
+                 "medioambient",
+                 "reciclaje",
+                 "ecológico",
+                 "límpia",
+                 "invernadero",
+                 "emisiones",
+                 "carbono",
+                 "plástico",
+                 "fósiles")))
+
+# Taggs the text using the dictionary
+tagText(text, 
+        keywords = dic, 
+        palette = pal$cat.cartocolor.prism.11,
+        font.size = 24, 
+        title = "Adolfo Suarez Inaugural Speech (1979)",
+        margin = 400)
+
+```
+
+In this case, all keywords belonging to the same category in the dictionary will be colored with the same color. This is useful to identify the presence of themes in the text. By hovering the mouse over the highlighted words, the name of the main category will be displayed.
+
+Although useful, the function `tagText` is limited to one text at a time and does not include more advanced attributes, such as the count of matches or categories included in each paragraph, sentence, or document. It only works for the text as a whole. Actions such as ordering, breaking into smaller textual units (paragraphs of sentences), aggregating into larger (parties, parliamentary sessions, etc.) or filtering are not possible. 
+
+
+## Tagging a whole corpus
+
+The function `tagCorpus` overcomes the limits mentioned above. The function receives a corpus and a dictionary as arguments. It divides documents into subunits (sentences, paragraphs, etc.) and tags each of them. The results are stored in a data frame where each row corresponds to a subunit. Besides the tagged text, the table also displays the category in the dictionary with most matches, a list of all categories found in the paragraph, and the number of matches and categories found in the row. 
+
+You can resize the text ("Paragraph") column, sort the values by clicking in the name of the columns, or filter values by typing text into the search boxes below column names. What are the paragraphs where the main category is "medioambiente"? By typing "medio" in the search box, the results are filtered and we can inspect the text for a deeper understanding of its content. We can also check what are the documents (in our example, Spanish Presidents) that mention the category "medioambiente" the most.
+
+```{r, eval=T}
+
+# Create a corpus object with
+# the Spanish inaugural speeches
+cp <- corpus(spa.inaugural)
+
+# Tag the corpus using the dictionary
+# and spliting each text into sentences
+tagCorpus(cp, dic, reshape.to="sentences")
+
+```
+
+
+Although in this `vignette` the table does not fit the screen, by using it on the source or console, the function enables users to inspect the results on any browser in fullscreen (recommended for best results).
+
+Despite its simplicity, the function `tagCorpus` is a powerful tool to tag and explore a whole corpus using dictionaries. It allows users to inspect the results in a more detailed way, facilitating the identification of patterns, comparing documents, and the localization and quantification of coding categories in the text.

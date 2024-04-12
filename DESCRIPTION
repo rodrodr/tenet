@@ -11,6 +11,8 @@ Imports: stringi, grDevices, quanteda, rstudioapi, ggplot2, ggtext, quanteda.tex
 		FactoMineR, ggiraph, ggthemes, reshape2, igraph, dplyr, reactable, 
 		 tidygraph, ggraph, collapse, readr, htmlwidgets, jsonlite, ggforce, ggrepel, 
 		 scales, tidylo, d3r
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
 Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
