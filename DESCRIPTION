@@ -16,3 +16,4 @@ LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+URL: https://rodrodr.github.io/tenet/
