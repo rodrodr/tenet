@@ -1,0 +1,28 @@
+---
+title: "Text and Time"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Text and Time}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+This vignette introduces the analysis of flows and time in textual data. Many corpora are organized according to sequentially. Parliamentary sessions, discourses, 
+
+
+plotStream
+
+countNgram
+
+plotNgram
+
+

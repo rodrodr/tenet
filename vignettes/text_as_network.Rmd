@@ -1,0 +1,39 @@
+---
+title: "Texts as Networks"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Texts as Networks}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+How can we represent texts as networks? This vignette provides a brief overview on how to prepare data 
+
+## Preparing text
+
+
+## Social Network Analysis
+
+SNA techniques
+
+plotNetCentrality
+
+
+## Visualizing text networks
+
+One mode 
+
+
+Bimodal networks
+
+plotNet
+

@@ -24,7 +24,12 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/tagging_texts.html">Tagging Texts Using Keywords or Dictionaries</a>
+    <a class="dropdown-item" href="../articles/tagging_texts.html">Computer-Assisted Text Tagging</a>
+    <a class="dropdown-item" href="../articles/text_and_time.html">Text and Time</a>
+    <a class="dropdown-item" href="../articles/text_as_network.html">Texts as Networks</a>
+    <a class="dropdown-item" href="../articles/text_scanning.html">Scanning for Words and Themes</a>
+    <a class="dropdown-item" href="../articles/thematic_coding.html">Tools for Thematic Coding</a>
+    <a class="dropdown-item" href="../articles/visualizing_text.html">Visualizing Textual Data</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -65,53 +70,18 @@
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># some operations on the corpus</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">Pirandello</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Order        Personaje            Accion              text          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :  1.0   Length:683         Length:683         Length:683        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:171.5   Class :character   Class :character   Class :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :342.0   Mode  :character   Mode  :character   Mode  :character  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :342.0                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:512.5                                                           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :683.0                                                           </span>
-<span class="r-in"><span><span class="va">dic.pol.es</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Dictionary object with 10 primary key entries and 2 nested levels.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - [actores]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [empresas]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - banco, emprendedor, empres, inversor, mercado, privad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [partidos]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - izquierda unida, partido, partido popular, partido socialista, ucd, unidas podemos, partido nacionalista vasgo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [trabajadores]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - \bparado, emplead, funcionario, médic, profesor, sanitarios, trabajador</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - [postmaterialismo]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [medioambiente]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - medio ambiente, cambio clim, ecolog, sostenib, contamina, emisiones, renovable, biodiversidad</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [genero]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - \bgenero\b, homos, transe, \btrans\b, lgbti, sexo, sexual, lesbiana, feminis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [memoria]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - derechos humanos, dictadura, fosas, franquis, memoria</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - [defensa]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [policia]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - fuerzas de seguridad, ejército, fuerzas y cuerpos, polic, seguridad ciudadana</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [seguridad]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - defensa, fronter, fuerzas armadas, guerra, iraq, militar, valla</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - [discurso]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [democracia]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - democ, elecci, electoral, libert, urna, voto</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [españa]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - españ, \bnación\b, patria, pueblo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [retorica]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - confianza, ilustres, investidura, legislatura, señor, ss</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - [exterior]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [europa]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - euro, bruselas, polonia, holanda, reino unido, finlandia, noruega, alemania, francia, portugal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [resto_mundo]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - américa, america, brasil, chile, uruguay, venez, ecuador, nicaragua, africa, diplom, embaja, exterior, marruecos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - [fiscal]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [fiscal]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - déficit, financier, fiscal, impues, irpf, recauda, superávit, tributo</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   - [gasto]:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     - deuda, gasto, presupuest, recursos</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [ reached max_nkey ... 4 more keys ]</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">dic.pol.es</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  Length Class       Mode</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> actores          3      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> postmaterialismo 3      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> defensa          2      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> discurso         3      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> exterior         2      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> fiscal           2      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> instituciones    3      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> social           2      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> tecnologia       2      dictionary2 list</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> territorial      3      dictionary2 list</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

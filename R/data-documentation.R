@@ -12,16 +12,15 @@
 #' @examples
 #' # some operations on the corpus
 #' summary(br.films)
-#' head(quanteda::docvars(br.films), 10)
+#' head(quanteda::docvars(br.films))
 #' @keywords data
 #' @source OMDB.
-#' @examples br.films
 "br.films"
 
 
 #' Spanish Presidents' Inaugural Speeches 
 #' 
-#' This dataset contains 15 Inaugural Speeches from 1979 to 2020.
+#' This dataset contains 16 Inaugural Speeches from 1979 to 2023.
 #' 
 #' @format a [data.frame] object with the following variables:
 #' * `doc_id` character; Document ID
@@ -33,7 +32,6 @@
 #' summary(spa.inaugural)
 #' @keywords data
 #' @source Moncloa.
-#' @examples spa.inaugural
 "spa.inaugural"
 
 
@@ -57,7 +55,6 @@
 #' summary(bra.inaugural)
 #' @keywords data
 #' @source Presidencia.gov.br and Bonfim (2005).
-#' @examples bra.inaugural
 "bra.inaugural"
 
 
@@ -82,7 +79,7 @@
 #' summary(cis.corrupt)
 #' @keywords data
 #' @source CIS (2011).
-#' @examples cis.corrupt
+#' @examples head(cis.corrupt)
 "cis.corrupt"
 
 
@@ -100,7 +97,7 @@
 #' summary(Pirandello)
 #' @keywords data
 #' @source Wikipedia: https://es.wikisource.org/wiki/Seis_personajes_en_busca_de_autor.
-#' @examples Pirandello
+#' @examples head(Pirandello)
 "Pirandello"
 
 
@@ -114,10 +111,9 @@
 #' * `keywords` character; Terms to be employed in the search for each code/issue.
 #' @examples
 #' # some operations on the corpus
-#' summary(Pirandello)
+#' summary(dic.pol.es)
 #' @keywords dictionary
 #' @source Own elaboration.
-#' @examples dic.pol.es
 "dic.pol.es"
 
 
@@ -146,7 +142,7 @@
 #' summary(spa.sessions)
 #' @keywords data.frame, Spanish Congress
 #' @source Own elaboration based on the legislative diaries provided by the Congreso de los Diputados (www.congreso.es).
-#' @examples spa.sessions
+#' @examples head(spa.sessions)
 "spa.sessions"
 
 #' Data Visualization Color Palettes

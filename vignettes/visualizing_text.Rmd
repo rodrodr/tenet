@@ -1,0 +1,20 @@
+---
+title: "Visualizing Textual Data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Visualizing Textual Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+This vignette is a wrapper to introduce the functions included in `tenet` that allow for the visualization of text and textual data. Most, if not all, are also included in other articles with more detailed explanations. Therefore, if you are interested in a specific function, you can check the corresponding article.
+

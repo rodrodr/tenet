@@ -24,7 +24,12 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/tagging_texts.html">Tagging Texts Using Keywords or Dictionaries</a>
+    <a class="dropdown-item" href="../articles/tagging_texts.html">Computer-Assisted Text Tagging</a>
+    <a class="dropdown-item" href="../articles/text_and_time.html">Text and Time</a>
+    <a class="dropdown-item" href="../articles/text_as_network.html">Texts as Networks</a>
+    <a class="dropdown-item" href="../articles/text_scanning.html">Scanning for Words and Themes</a>
+    <a class="dropdown-item" href="../articles/thematic_coding.html">Tools for Thematic Coding</a>
+    <a class="dropdown-item" href="../articles/visualizing_text.html">Visualizing Textual Data</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -65,11 +70,30 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="co"># some operations on the corpus</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># some operations on the corpus</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">Pirandello</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      Order        Personaje            Accion              text          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Min.   :  1.0   Length:683         Length:683         Length:683        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  1st Qu.:171.5   Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Median :342.0   Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mean   :342.0                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  3rd Qu.:512.5                                                           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Max.   :683.0                                                           </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">Pirandello</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Order             Personaje Accion</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8      1 Descripcion de escena   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12     2 Descripcion de escena   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16     3 Descripcion de escena   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19     4 Descripcion de escena   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22     5 Descripcion de escena   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25     6 Descripcion de escena   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                                             text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                                                                                                                                                                                                                                                              Es de día, en el escenario de un teatro de verso.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12 NOTA BENE. La Comedia no tiene actos ni escenas. La representación se interrumpirá una primera vez, sin bajar el telón, cuando el Director de la Compañía y el primero de los Personajes se retiran para concertar la escenificación, desalojando entonces los actores el escenario; y una segunda vez, cuando por error, el maquinista dejará caer el telón.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                                                  Al entrar los espectadores en el teatro, hallarán levantado el telón, casi obscuro y vacio el escenario, como durante el dia, sin bastidores ni decorado, para que desde el principio se reciba la impresión de un espectáculo no preparado.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                                                                                                                                                                                                                                        La concha del apuntador, estará a un lado del boquete.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                                                                                                                                                                 Al otro lado, cerca del proscenio, una mesita y una butaca con el respaldo hacia el público, para el Director de la Compañía.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                                                                                                                                                   Otras dos mesitas, una más grande y otra más pequeña, con algunas sillas en torno, por si son necesarias durante el ensayo.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -24,7 +24,12 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/tagging_texts.html">Tagging Texts Using Keywords or Dictionaries</a>
+    <a class="dropdown-item" href="../articles/tagging_texts.html">Computer-Assisted Text Tagging</a>
+    <a class="dropdown-item" href="../articles/text_and_time.html">Text and Time</a>
+    <a class="dropdown-item" href="../articles/text_as_network.html">Texts as Networks</a>
+    <a class="dropdown-item" href="../articles/text_scanning.html">Scanning for Words and Themes</a>
+    <a class="dropdown-item" href="../articles/thematic_coding.html">Tools for Thematic Coding</a>
+    <a class="dropdown-item" href="../articles/visualizing_text.html">Visualizing Textual Data</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -72,11 +77,72 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="co"># some operations on the data</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># some operations on the data</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cis.corrupt</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Persona              text               Order       Tipo.Persona      </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:4445        Length:4445        Min.   :  1.0   Length:4445       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   1st Qu.:159.0   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Median :318.0   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Mean   :335.6                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                        3rd Qu.:495.0                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                        Max.   :837.0                     </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Estudio          Grupo.Discusion    Ciudad             Fecha          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:4445        Min.   :1.000   Length:4445        Length:4445       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   1st Qu.:2.000   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Median :4.000   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Mean   :3.842                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     3rd Qu.:6.000                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                     Max.   :7.000                                        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Grupo.Demografico   Desc.Grupo            Edad          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Length:4445        Length:4445        Length:4445       </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Class :character   Class :character   Class :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  Mode  :character   Mode  :character   Mode  :character  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                          </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                          </span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">cis.corrupt</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Persona</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Mod</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      M1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Mod</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      M1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     Mod</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      M1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                                                                              text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  Bueno, en primer lugar queria daros la bienvenida y agradeceros que os hayais animado a pasar aqui una tarde conmigo de trabajo, por decirlo. Os queria pedir, por favor, si no teneis ningun problema, permiso para grabar la sesion porque asi puedo estar mas tranquila, pendiente de la conversacion y no tener que estar tomando ninguna nota. Bueno, os voy a explicar un poco de que va</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                                                                                                                                                                                                                         Perdona, es para preparar una entrevista de trabajo, sera un segundo. Esta sin volumen.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                                                                                                                                                                                                                                                                                               ?Te van a llamar?</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                                                                                                                                                                                                                                          Si, no salgo siquiera.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                                                                                                                                                                                                                                                                        Bueno, lo que prefieras.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                                                                                                                                                                                  "Si a las seis, seis y media".</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Order Tipo.Persona Estudio Grupo.Discusion   Ciudad      Fecha</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     1    Moderador   E2863               1 Valencia 2011-03-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     2        Mujer   E2863               1 Valencia 2011-03-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     3    Moderador   E2863               1 Valencia 2011-03-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     4        Mujer   E2863               1 Valencia 2011-03-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     5    Moderador   E2863               1 Valencia 2011-03-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     6        Mujer   E2863               1 Valencia 2011-03-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Grupo.Demografico</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Amas de casa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      Amas de casa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Amas de casa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Amas de casa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5      Amas de casa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      Amas de casa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                               Desc.Grupo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Grupo de amas de casa, 50 años a 60 (compañeras de empleados y funcionarios con empleados bajo su responsabilidad, de técnicos medios)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Grupo de amas de casa, 50 años a 60 (compañeras de empleados y funcionarios con empleados bajo su responsabilidad, de técnicos medios)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Grupo de amas de casa, 50 años a 60 (compañeras de empleados y funcionarios con empleados bajo su responsabilidad, de técnicos medios)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Grupo de amas de casa, 50 años a 60 (compañeras de empleados y funcionarios con empleados bajo su responsabilidad, de técnicos medios)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Grupo de amas de casa, 50 años a 60 (compañeras de empleados y funcionarios con empleados bajo su responsabilidad, de técnicos medios)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Grupo de amas de casa, 50 años a 60 (compañeras de empleados y funcionarios con empleados bajo su responsabilidad, de técnicos medios)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    Edad</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 50-60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 50-60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 50-60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 50-60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 50-60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 50-60</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

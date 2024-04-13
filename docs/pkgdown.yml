@@ -3,7 +3,12 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   tagging_texts: tagging_texts.html
-last_built: 2024-04-12T17:39Z
+  text_and_time: text_and_time.html
+  text_as_network: text_as_network.html
+  text_scanning: text_scanning.html
+  thematic_coding: thematic_coding.html
+  visualizing_text: visualizing_text.html
+last_built: 2024-04-13T10:33Z
 urls:
   reference: https://rodrodr.github.io/tenet/reference
   article: https://rodrodr.github.io/tenet/articles

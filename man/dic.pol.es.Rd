@@ -23,7 +23,6 @@ This dictionary contains a nested (two-level) set of codes for analyzing Spanish
 }
 \examples{
 # some operations on the corpus
-summary(Pirandello)
-dic.pol.es
+summary(dic.pol.es)
 }
 \keyword{dictionary}

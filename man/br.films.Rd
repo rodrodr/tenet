@@ -25,11 +25,8 @@ br.films
 This dataset contains 260 Brazilian fictional films from 1985 to 2023.
 }
 \examples{
-\dontrun{
 # some operations on the corpus
 summary(br.films)
-head(quanteda::docvars(br.films), 10)
-br.films
-}
+head(quanteda::docvars(br.films))
 }
 \keyword{data}

@@ -23,10 +23,8 @@ Pirandello
 This dataset contains the dialogues of the 1921 play Six Characters in Search of an Author by the Italian writer (and Nobel laureate) Luigi Pirandello. The Spanish version contained here was translated in 1926 by Félix Azzati and is currently available at Wikipedia.
 }
 \examples{
-\dontrun{
 # some operations on the corpus
 summary(Pirandello)
 head(Pirandello)
-}
 }
 \keyword{data}

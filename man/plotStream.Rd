@@ -23,7 +23,7 @@ plotStream(data,
 
 \item{group}{The name of the variable indicating groups or aggregated categories.}
 
-\item{palette}{The color palette included in either RColorBrewer or wesanderson palettes. The default is "FantasticFox1".}
+\item{palette}{The color palette employed to represent groups.}
 
 \item{height}{The height of the html panel in pixels. The default is 580.}
 

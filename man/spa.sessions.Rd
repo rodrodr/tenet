@@ -34,12 +34,10 @@ spa.sessions
 This dataset contains all interventions by lower-chamber representatives in the Spanish Congress (Congreso de los diputados) during the 14th legislature (2019-2023). Each observation corresponds to an intervention.
 }
 \examples{
-\dontrun{
 # some operations on the corpus
 summary(spa.sessions)
 head(spa.sessions)
 }
-}
 \keyword{Congress}
 \keyword{Spanish}
-\keyword{data.frame}
+\keyword{data.frame,}

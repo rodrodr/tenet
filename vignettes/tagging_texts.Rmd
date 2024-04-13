@@ -1,10 +1,8 @@
 ---
-title: "Tagging Texts Using Keywords or Dictionaries"
-author: "Rodrigo Rodrigues-Silveira"
-date: "`r Sys.Date()`"
+title: "Computer-Assisted Text Tagging"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Tagging Texts Using Keywords or Dictionaries}
+  %\VignetteIndexEntry{Computer-Assisted Text Tagging}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -70,7 +68,7 @@ dic <- dictionary(
 In many occasions we need to check the presence of certain keywords or categories in a text. This procedure is commonplace in most Content Analysis and Text Mining tasks. This vignette provides a brief guide on how to tag texts using dictionaries in R. 
 
 
-## Taggin one text at a time
+## Tagging one text at a time
 
 The package `tenet` provides a function to tag one text at a time. The function `tag_text` receives a text and a dictionary as arguments. The dictionary must be a named list where the names are the categories and the elements are the keywords. 
 
@@ -164,7 +162,7 @@ In this case, all keywords belonging to the same category in the dictionary will
 Although useful, the function `tagText` is limited to one text at a time and does not include more advanced attributes, such as the count of matches or categories included in each paragraph, sentence, or document. It only works for the text as a whole. Actions such as ordering, breaking into smaller textual units (paragraphs of sentences), aggregating into larger (parties, parliamentary sessions, etc.) or filtering are not possible. 
 
 
-## Tagging a whole corpus
+## Tagging the whole corpus
 
 The function `tagCorpus` overcomes the limits mentioned above. The function receives a corpus and a dictionary as arguments. It divides documents into subunits (sentences, paragraphs, etc.) and tags each of them. The results are stored in a data frame where each row corresponds to a subunit. Besides the tagged text, the table also displays the category in the dictionary with most matches, a list of all categories found in the paragraph, and the number of matches and categories found in the row. 
 

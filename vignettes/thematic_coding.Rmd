@@ -1,0 +1,63 @@
+---
+title: "Tools for Thematic Coding"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Tools for Thematic Coding}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+In this vignette, we will introduce some functions that act as tools crafted to assist in  the thematic coding process. Thematic coding is a method used to analyze qualitative data. It involves identifying patterns or themes in the data and assigning codes to these themes. Thematic coding is a flexible and intuitive method that can be used to analyze a wide range of qualitative data, including interviews, focus groups, and open-ended survey responses.
+
+Here, we employ dictionaries to search for terms and ideas in a corpus, count the frequency of these terms, and organize the results in a data frame and different visualizations. Our focus will be put on three tasks:
+
+1. Counting the frequency of terms from a dictionary in a corpus.
+
+2. Describe de prevalence of categories comparatively and their mutual association.
+
+3. Assess how different groups of documents (organized by President, party, or any other variable) differ in terms of the frequency of categories from a dictionary.
+
+
+
+## Counting categories
+
+Here the functions crafted to count the frequency:
+
+countKeywords
+
+
+forceDirectedTree - for visualizing the relevance of categories.
+plotVoronoiTree 
+
+
+
+
+
+
+## Association between categories
+
+matchCodes - This function calculates the association between categories in a dictionary. It returns a matrix with the number of documents in which each pair of categories co-occur. The function also returns a matrix with the number of documents in which each category appears. 
+
+It generates a data.frame object containing three variables: term1, term2, and value. The term1 and term2 variables represent a pair of categories available in the dictionary, and the value variable represents the number of times in which the categories co-occur in the corpus. 
+
+
+chordDiagram - This function generates a chord diagram to visualize the association between categories. The function takes as input the output of the matchCodes function and generates a chord diagram using the circlize package. The function allows the user to customize the appearance of the chord diagram by specifying the colors of the categories and the width of the chords.
+
+the BubbleGrid chart is a variation of the bubble chart that uses a grid layout to display the bubbles. The BubbleGrid chart is useful for visualizing the distribution of categories across different groups of documents of the association between them. The size of the bubbles represents the frequency of the categories, and the color of the bubbles represents the groups of documents. The BubbleGrid chart is an effective way to compare the distribution of categories across different groups of documents and identify patterns and trends in the data. 
+
+
+## Comparing groups
+
+sankeyDiagram - This function generates a Sankey diagram to visualize the distribution of categories across different groups of documents. The function takes as input the output of the countKeywords function and generates a Sankey diagram using the networkD3 package. The function allows the user to customize the appearance of the Sankey diagram by specifying the colors of the categories and the groups.
+
+BubbleGrid chart.
+
