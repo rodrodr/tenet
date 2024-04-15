@@ -12,20 +12,113 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(tenet)
+
+
+
+
 ```
 
 ## Introduction
 
-Search for words and themes in a text corpus.
+In many occasions, it is necessary to scan a text or entire corpora for specific words of themes. For instance, a researcher may want to explore how often parties refer to "democracy" and other related terms in their manifestos or the speeches in parliament. They can also be interested in categories such as different emotions or policy areas. 
 
-tfRatio
+Here we will present functions related to three tasks or procedures that are often used in text analysis to scan texts. These are: contextualization, salience, and positioning. The first shows words in context, allowing users to see how they are used in sentences or paragraphs. This resource is particularly usefull to determine the degree of ambiguity or polysemy of a word. The second shows the importance of words in a text or corpus, either by expressing their weigth in a text or by comparing their frequency in different texts. This feature is particularly useful to select texts or identify those dcouments that are more relevant to a specific topic. The third shows the position of words in a text or corpus, allowing users to see how words are distributed in a text or corpus. This feature is particularly useful to identify the position of words in a text or corpus.
 
-countNgram
 
-wordTree
+## Contextualizing keywords using *wordTree*
 
-plotKeyness
+The function wordTree employs a Google charts visualization to show the context of a keyword in a text or corpus. The function requires a corpus and a keyword as arguments. The function will return a visualization with the keyword in the center and the words that appear before and after the keyword. 
 
+```{r, eval = FALSE}
+
+#  Load the packages
+library(quanteda)
+
+# Create a corpus with the inaugural discourses
+# of Spanish presidents
+cp <- corpus(spa.inaugural)
+
+# Create a wordtree with the word "libertad"
+wordtree(corpus = cp,
+         keyword = "libertad",
+         height = 800)
+
+```
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, eval=T}
+
+library(quanteda)
+cp <- corpus(spa.inaugural)
+
+# Un arbol de palabras en tenet
+ur <- wordtree(corpus = cp,
+         keyword = "libertad",
+         height = 600,
+         url.return = T)
+
+# Visualiza en el documento mismo y no
+# en una nueva ventana
+htmltools::includeHTML(ur)
+
+
+```
+
+
+The chart enables users to click on particular words and explore how they relate to the keyword "libertad". The graph also sizes words according to their frequency in the corpus. Those expressions appearing more frequently are larger than those appearing less.
+
+## Salience analysis
+
+In other cases, users want to determine which texts contain a given keyword more frequently. Imagine a set of 10 thousand laws and a researchers just want to analyze those where the word "tax" is prevalent. In this case, we can use the function `tfRatio`, term-frequency ratio that provides us with the ratio of the frequency of a word in a text compared to the frequency of the same word in the entire corpus. Therefore, values way above one are more frequent in the text than in the corpus and those below one are less common.
+
+For instance, we can use the function `tfRatio` to determine which texts in the corpus `cp` contain words with "machis" more frequently than in the entire corpus (machismo, machista):
+
+```{r}
+
+# Calculate the ratio for those
+# texts with the root "machis"
+tt <- tfRatio(cp, "machis")
+
+# Display the name of the documents
+# containing words starting with "machis"
+as.character(docid(cp)[tt > 0])
+
+```
+We can verify that the only matches are the last two presidents from the PSOE party: José Luís Rodríguez Zapatero and Pedro Sánchez.
+
+Other functions perform the opposite operation. They look at reference texts and calculate the relevance of each word. The function `plotKeyness` calculates the keyness of words in a text or corpus. The keyness is a measure of the importance of a word in a text or corpus. The function requires a corpus and a reference corpus. The function will return a visualization with the words that are more relevant in the corpus compared to the reference corpus. 
+
+```{r, eval = T} 
+
+# Selects the session no. 124 of the Spanish parliament
+# discussing the law againgst sexual violence.
+spa <- spa.sessions[spa.sessions$session.number==124,]
+
+# Aggregate Spanish parliamentary speeches
+# by party
+re <- aggregate(list(text=spa$speech.text), 
+                by=list(rep.party=spa$rep.party),
+                FUN=paste, 
+                collapse="\n")
+
+# Create a corpus object with the speeches
+cp <- corpus(re)
+
+# Group the corpus by party
+ci <- corpus_group(cp, groups = rep.party)
+
+# Plot the keyness (log-odds ratio) of the words 
+# in the speeches
+plotKeyness(corpus = ci,
+            type = "log", 
+            ref.cat = "Podemos", 
+            title = "")
+
+```
+
+## Positional analyses
 
 plotLexDiv
 

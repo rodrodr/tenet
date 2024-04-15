@@ -158,7 +158,7 @@ plotKeyness <- function(corpus,
   if (return.data==FALSE){
     
     if(interactive==TRUE){
-      return(ggiraph::girafe(ggobj = p))
+      return(ggiraph::girafe(ggobj = p, width_svg = "100%"))
     }else{
       return(p)
     }
