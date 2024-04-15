@@ -15,9 +15,6 @@ knitr::opts_chunk$set(
 
 library(tenet)
 
-
-
-
 ```
 
 ## Introduction
@@ -77,6 +74,9 @@ For instance, we can use the function `tfRatio` to determine which texts in the 
 
 ```{r}
 
+library(quanteda)
+cp <- corpus(spa.inaugural)
+
 # Calculate the ratio for those
 # texts with the root "machis"
 tt <- tfRatio(cp, "machis")
@@ -90,7 +90,9 @@ We can verify that the only matches are the last two presidents from the PSOE pa
 
 Other functions perform the opposite operation. They look at reference texts and calculate the relevance of each word. The function `plotKeyness` calculates the keyness of words in a text or corpus. The keyness is a measure of the importance of a word in a text or corpus. The function requires a corpus and a reference corpus. The function will return a visualization with the words that are more relevant in the corpus compared to the reference corpus. 
 
-```{r, eval = T} 
+The closer to cero, the less relevant the word. On the contrary, the further from cero, the more relevant the word. Words that are in the center-left of the chart are the least salient. They appear few times and are not particularly useful to distinguish the reference text from other texts in the corpus. Words located either on the top-right or bottom-right are the most salient. They are frequent in the reference text and highly informative to distinguish the reference text from other texts in the corpus.  
+
+```{r, eval = T, fig.width=8, fig.height=6} 
 
 # Selects the session no. 124 of the Spanish parliament
 # discussing the law againgst sexual violence.
@@ -104,10 +106,10 @@ re <- aggregate(list(text=spa$speech.text),
                 collapse="\n")
 
 # Create a corpus object with the speeches
-cp <- corpus(re)
+ci <- corpus(re)
 
 # Group the corpus by party
-ci <- corpus_group(cp, groups = rep.party)
+ci <- corpus_group(ci, groups = rep.party)
 
 # Plot the keyness (log-odds ratio) of the words 
 # in the speeches
@@ -118,22 +120,82 @@ plotKeyness(corpus = ci,
 
 ```
 
+The most employed words by Podemos in the session nº 124 of the Spanish parliament are represented in blue: "violencias", "feministas", "impunidad", "logotipo", "Irene" (reference to the Minister of Gender Equality, Irene Montero). The relativelly less employed words by Podemos are represented in red: "violencia", "votos", "derechos", "sexual", "libertad","votos","votación", among others.
+
 ## Positional analyses
 
-plotLexDiv
+In other cases, users want to determine the position of a word in a text or corpus. For instance, a researcher may want to determine the position of the word "democracy" in the speeches of the Spanish parliament. The function `plotLexDiv` generates a lexical dispersion plot that shows the position of a word in a text or corpus. The function requires a corpus and a keyword as arguments. The function will return a visualization with the position of the keyword in the text or corpus. 
 
-filterWords and  plotSpike
+```{r, eval = T, fig.width=7, fig.height=6}
+
+# Create a lexical dispersion plot for
+# the word "democracia" in the 
+# inaugural speeches of Spanish presidents
+plotLexDiv(corpus = cp,
+           docvar = "doc_id",
+           keyword = "democracia")
+
+```
+
+The same graph could be employed with a dictionary to highlight themes instead of individual keywords:
 
 
-## Vignette Info
+```{r, eval = T, fig.width=7, fig.height=6}
 
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+library(quanteda)
 
-## Styles
+dic <- dictionary(
+  list(democracia=c("democracia","democrát"),
+       libertad=c("libertad"),
+       igualdad=c("igualdad","equidad"))
+)
 
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+# Create a lexical dispersion plot for
+# the dictionary in the 
+# inaugural speeches of Spanish presidents
+plotLexDiv(corpus = cp,
+           docvar = "doc_id",
+           palette = pal$cat.awtools.spalette.6[1:3],
+           keyword = dic)
 
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
+```
+
+
+Finally, we can use the functions filterWords and plotSpike to create lexical diversity plots for a large corpus. As an example, we will apply the same dictionary (democracia, igualdad, libertad) to all sessions of the Spanish parliament.  First we aggregate all parliamentary speeches by session and then we create a corpus object with the results. Then, we create an interactive plot with the function plotSpike that shows the position of the keywords in the corpus, colored by each group in the dictionary. The plot below shows the 19,428 matches for the three categories in the dictionary in a total of 262 parliamentary sessions.
+
+Since the plot is interactive and includes a large number of elements, it is preferrable to run the code in the console by copying the code below and pasting it in the console.
+
+```{r, eval = T}
+
+ag <- aggregate(list(text=spa.sessions$speech.text),
+                by=list(session=spa.sessions$session.number),
+                FUN=paste, 
+                collapse="\n")
+
+# Paste zeros to the number to allow
+# sorting the sessions
+ag$session[nchar(ag$session)==1] <- 
+paste0("00", ag$session[nchar(ag$session)==1])
+
+ag$session[nchar(ag$session)==2] <- 
+paste0("0", ag$session[nchar(ag$session)==2])
+
+# Create a corpus with the results
+cs <- corpus(ag, docid_field = "session")
+
+# Search the keywords and their
+# position in each session
+ter <- filterWords(cs, dic)
+
+# Plot the results
+plotSpike(data=ter,
+          legend.title="Tema:",
+          title="Congreso de los Diputados - XIV Legislatura (2019-2023)",
+          subtitle="Democracia, libertad e igualdad en los debates de los plenos.", 
+          svg.width =5, 
+          svg.height = 5)
+
+
+```
+
 
