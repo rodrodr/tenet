@@ -14,7 +14,7 @@ License: GPL (>= 3)
 Imports: stringi, grDevices, quanteda, rstudioapi, ggplot2, ggtext, quanteda.textstats, 
 		FactoMineR, ggiraph, ggthemes, reshape2, igraph, dplyr, reactable, 
 		 tidygraph, ggraph, collapse, readr, htmlwidgets, jsonlite, ggforce, ggrepel, 
-		 scales, tidylo, d3r, htmltools
+		 scales, tidylo, d3r, cowplot, htmltools
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 Encoding: UTF-8

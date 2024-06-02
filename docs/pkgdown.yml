@@ -1,4 +1,4 @@
-pandoc: 3.1.1
+pandoc: 3.1.11
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
@@ -8,7 +8,7 @@ articles:
   text_scanning: text_scanning.html
   thematic_coding: thematic_coding.html
   visualizing_text: visualizing_text.html
-last_built: 2024-04-24T17:12Z
+last_built: 2024-06-02T07:08Z
 urls:
   reference: https://rodrodr.github.io/tenet/reference
   article: https://rodrodr.github.io/tenet/articles

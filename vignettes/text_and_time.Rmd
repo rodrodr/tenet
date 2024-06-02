@@ -26,7 +26,9 @@ This vignette introduces the analysis of flows and time in textual data. Many co
 
 Here, we present two ways of examing time in texts. The first is to count the frequency of categories or themes (based on a set of kewords) over time. The second is to analyze the salience of different actors or groups in the overall flow of words.
 
+
 ## Counting words over time
+
 
 The function `countKeywords` allows users to count the frequency of a set of dictionary keywords in a corpus over time. The function requires a corpus, a dictionary of keywords, and a grouping variable. The function will return a data frame with the frequency of each keyword in each group.
 
@@ -101,7 +103,9 @@ ggplot(data=ng,
 ```
 
 
+
 ## Salience of actors over time
+
 
 Another strategy consists in evaluating the salience of different actors or groups in the overall flow of words. The function `plotStream` allows users to visualize the evolution of the salience of different actors in a corpus over time. The function requires a corpus, a grouping variable, and a variable with the names of the actors. The function will return a streamgraph with the evolution of the salience of each actor over time.
 
