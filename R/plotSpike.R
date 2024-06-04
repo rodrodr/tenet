@@ -26,6 +26,7 @@ plotSpike <- function(data=NULL,
                       tooltip_doc="name",
                       label.size=1,
                       ring.col="red3",
+                      ring.width=0.2,
                       line.width=0.1,
                       legend.position="top",
                       legend.title="Group",
@@ -121,20 +122,20 @@ plotSpike <- function(data=NULL,
     
     
     segm <- ggiraph::geom_segment_interactive(
-      ggplot2::aes_string(x = "index", 
-                   xend="index", 
+      ggplot2::aes(x = index, 
+                   xend=index, 
                    y = 0,
                    yend=1, 
-                   tooltip="label_values", 
-                   color="group"), 
+                   tooltip=label_values, 
+                   color=group), 
       linewidth=line.width)
   }else{
     segm <- ggiraph::geom_segment_interactive(
-      ggplot2::aes_string(x = "index", 
-                   xend="index", 
+      ggplot2::aes(x = index, 
+                   xend=index, 
                    y = 0,
                    yend=1, 
-                   tooltip="label_values"), 
+                   tooltip=label_values), 
       linewidth=line.width, 
       color=palette[1])
     
@@ -189,11 +190,11 @@ plotSpike <- function(data=NULL,
   }else{
     pc <- ggplot2::coord_cartesian(clip = 'off')
     geo <-ggplot2::geom_segment(data=df,
-                      ggplot2::aes_string(
-                                  x = "x", 
-                                  xend="xend", 
-                                  y = "y",
-                                  yend="yend"), 
+                      ggplot2::aes(
+                                  x = x, 
+                                  xend=xend, 
+                                  y = y,
+                                  yend=yend), 
                                   linewidth=line.width, 
                                   color="black")
     adj <- -0.2
@@ -207,11 +208,11 @@ plotSpike <- function(data=NULL,
   
   p <- p +
     ggplot2::geom_segment(data=df,
-                          ggplot2::aes_string(
-                            x = "x", 
-                            xend="xend", 
-                            y = "y",
-                            yend="yend"), 
+                          ggplot2::aes(
+                            x = x, 
+                            xend=xend, 
+                            y = y,
+                            yend=yend), 
                           linewidth=line.width, 
                           color="black")
   
@@ -224,10 +225,10 @@ plotSpike <- function(data=NULL,
     
     p <- p +   
       ggplot2::geom_segment(data=dq,
-        ggplot2::aes_string(x = "x", 
-                     xend="xend", 
-                     y = "y",
-                     yend="yend"), 
+        ggplot2::aes(x = x, 
+                     xend=xend, 
+                     y = y,
+                     yend=yend), 
         linewidth=line.width, 
         color="black")
     
@@ -235,15 +236,15 @@ plotSpike <- function(data=NULL,
   
   p <- p +
     ggiraph::geom_rect_interactive(
-      mapping=ggplot2::aes_string(
+      mapping=ggplot2::aes(
         xmin=0, 
         xmax=1, 
         ymin=0, 
         ymax=0.5, 
-        tooltip="label_doc"), 
+        tooltip=label_doc), 
       fill="white")  +
     ggplot2::geom_text(
-      ggplot2::aes_string(label = "label_text"),
+      ggplot2::aes(label = label_text),
       x = 0, 
       y = yadj, 
       hjust=adj,
@@ -251,7 +252,7 @@ plotSpike <- function(data=NULL,
       lineheight = 0.87,
       color = "black"
     )+
-    ggplot2::geom_hline(yintercept=0.5, size=0.2, color=ring.col)+
+    ggplot2::geom_hline(yintercept=0.5, linewidth=ring.width, color=ring.col)+
     ggplot2::theme_void()+
     ggplot2::facet_wrap(~name, shrink = TRUE,ncol=ncol, nrow=nrow)+ 
     ggplot2::theme(

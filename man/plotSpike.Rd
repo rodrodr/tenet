@@ -24,6 +24,7 @@ plotSpike(data=NULL,
           tooltip_doc="name",
           label.size=1,
           ring.col="red3",
+          ring.width=0.2,
           line.width=0.1,
           legend.position="top",
           legend.title="Group",
@@ -66,6 +67,8 @@ plotSpike(data=NULL,
 \item{label.size}{The size of the labels.}
 
 \item{ring.col}{The color of the ring. The default is "red3".}
+
+\item{ring.width}{The width of the ring. The default is 0.2.}
 
 \item{line.width}{The width of the lines. The default is 0.1.}
 
