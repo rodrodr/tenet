@@ -1,0 +1,15 @@
+pandoc: 3.1.11
+pkgdown: 2.0.9
+pkgdown_sha: ~
+articles:
+  tagging_texts: tagging_texts.html
+  text_and_time: text_and_time.html
+  text_as_network: text_as_network.html
+  text_scanning: text_scanning.html
+  thematic_coding: thematic_coding.html
+  visualizing_text: visualizing_text.html
+last_built: 2024-06-04T14:37Z
+urls:
+  reference: https://rodrodr.github.io/tenet/reference
+  article: https://rodrodr.github.io/tenet/articles
+
